@@ -22,6 +22,44 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+
+  --color-ray: rgb(238, 96, 71);
+  --color-ray-alpha: rgba(238, 96, 71, .74);
+}
+
+@media screen and (max-width: 767px) {
+  html {
+    font-size: 12px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  section:not(#title) h1, section:not(#title) h2, section:not(#title) h3 {
+    text-align: center;
+  }
+}
+
+h1, h2 {
+  font-weight: 700;
+}
+
+h3 {
+  font-weight: 500;
+}
+
+.container {
+  max-width: 1440px;
+}
+
+@media screen and (max-width: 1440px){
+  .container {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 *,
