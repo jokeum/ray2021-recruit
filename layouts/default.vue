@@ -36,7 +36,7 @@ html {
     font-size: 16px;
   }
 
-  section:not(#title) h1, section:not(#title) h2, section:not(#title) h3 {
+  section:not(#title):not(#achievement) h1, section:not(#title):not(#achievement) h2, section:not(#title):not(#achievement) h3 {
     text-align: center;
   }
 }

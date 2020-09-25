@@ -78,7 +78,8 @@
           <div class="content">
             <div class="article">
               <h3>台北市民服務大平台，<br/>從場地租用看見市民痛點。</h3>
-              <p></p>
+              <p>行政院國家發展委員會正著手進行政府網站數位服務改善，本次計畫將和國發會及相關部會協作，一同優化政府網站數位服務。</p>
+              <p>本計畫將由國發會和欲改善數位服務的相關單位提供檢核清單，再經PDIS及見習同學篩選出與民眾關切議題直接相關的數位服務並進行檢核、設計出改善後的原型。專案開始時，我們會辦理講習工作坊；專案中，則透過設置線上討論及問答區，讓同學一同協作；另外也會定期辦理見面會，以確認進度和互相交流。</p>
             </div>
             <div class="label"></div>
             <div class="members"></div>
@@ -165,6 +166,7 @@ a.button {
   border-radius: 20px;
   border-color: var(--color-ray);
   border-style: solid;
+  font-size: 1.25rem;
 }
 
 #origin h2, #achievement h2, #comment h2 {
@@ -181,6 +183,8 @@ a.button {
   justify-content: center;
   margin-top: calc(-1rem - 0.625rem - 80px);
   color: #fff;
+  padding-left: 9em;
+  padding-right: 9em;
 }
 
 #title h1 {
@@ -204,8 +208,8 @@ a.button {
 
 @media screen and (max-width: 767px){
   #title {
-    margin-left: 3em;
-    margin-right: 3em;
+    padding-left: 3em;
+    padding-right: 3em;
   }
 }
 
@@ -464,8 +468,7 @@ article {
 
 #box .wrapper > .content {
   grid-column: 2 / 3;
-  margin-top: 5em;
-  margin-left: 5em;
+  padding: 2.5em 2.5em;
 }
 
 #box .wrapper > content h3 {
@@ -476,7 +479,24 @@ article {
   #achievement {
     position: relative;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    max-height: unset;
+  }
+
+  #box .wrapper {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+  }
+
+  #box .wrapper > img {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    width: 83.33vw;
+  }
+
+  #box .wrapper > .content {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
   }
 }
 </style>
