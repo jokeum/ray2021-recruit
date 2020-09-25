@@ -6,6 +6,8 @@ branches:
     - master
 before_deploy:
   - npm run build
+script:
+  - npm run generate
 deploy:
   skip_cleanup: true
   strategy: git
