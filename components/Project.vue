@@ -63,21 +63,22 @@ h2.card-title {
   text-align: left !important;
   color: unset !important;
   font-size: 1.5rem;
+  margin-bottom:unset !important;
 }
 .card {
   border-radius: unset;
-  max-width: min(calc(100vw - 10em), 1200px);
+  max-width: min(calc(100vw - 5em), 1200px);
 }
 
 .card > .row {
-  height: 100%;
 }
 
 .card-body {
   padding: 3rem;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 1fr 2.5rem;
   grid-template-areas: 'title' 'content' 'action';
+  grid-row-gap: 2em;
   height: 100%;
 }
 
@@ -91,16 +92,7 @@ h2.card-title {
 
 .card-body > .card-action {
   grid-area: action;
-  text-align: right;
-}
-
-@media screen and (max-width: 767px) {
-  .card {
-    height: calc(100vh - 10em);
-  }
-
-  .card-body {
-    height: 100%;
-  }
+  align-self: center;
+  justify-self: end;
 }
 </style>

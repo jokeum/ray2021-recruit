@@ -73,18 +73,49 @@
         <div class="bg-mask"></div>
       </div>
       <div class="wrapper">
-        <Project
-          :preview-image="projects[0].previewImage"
-          :title="projects[0].title"
-          :intro="projects[0].intro"
-          :tags="projects[0].tags"
-          :members="projects[0].members"
-        />
+        <template v-for="(project, index) in projects">
+          <Project
+            :key="index"
+            :preview-image="project.previewImage"
+            :title="project.title"
+            :intro="project.intro"
+            :tags="project.tags"
+            :members="project.members"
+          />
+        </template>
       </div>
     </section>
     <section id="comment" class="container">
-      <h2>見習心得</h2>
-      <h3>「見習完了，學長姐們都在想什麼？」</h3>
+      <div class="title">
+        <h2>見習心得</h2>
+        <h3>「見習完了，學長姐們都在想什麼？」</h3>
+      </div>
+      <video
+        class="image"
+        src="~/static/intern.mp4"
+        autoplay
+        playsinline
+        muted
+        loop/>
+      <div class="intro">
+        <p>行政院國家發展委員會正著手進行政府網站數位服務改善，本次計畫將和國發會及相關部會協作，一同優化政府網站數位服務。</p>
+        <p>本計畫將由國發會和欲改善數位服務的相關單位提供檢核清單，再經PDIS及見習同學篩選出與民眾關切議題直接相關的數位服務並進行檢核、設計出改善後的原型。專案開始時，我們會辦理講習工作坊；專案中，則透過設置線上討論及問答區，讓同學一同協作；另外也會定期辦理見面會，以確認進度和互相交流。</p>
+      </div>
+      <div class="filter">
+
+      </div>
+      <div class="comments">
+        <template v-for="(comment, index) in comments">
+          <Comment
+            :key="index"
+            :avatar="comment.avatar"
+            :name="comment.name"
+            :quote="comment.quote"
+            :title="comment.title"
+            :content="comment.content"
+          />
+        </template>
+      </div>
     </section>
   </div>
 </template>
@@ -117,6 +148,22 @@ export default {
               avatar: null
             }
           ]
+        }
+      ],
+      comments: [
+        {
+          avatar: 'placeholder.jpg',
+          name: '翁瑞宏',
+          quote: '每次不只是想要做完而已，而是要做到好上加好',
+          title: 'PDIS實習歷程｜運用UIUX創新思維 — 親手砍掉再重練的政府網站！(下)',
+          content: '嗨囉～我是HUNG，目前就讀於雲科創設所，由於我在PDIS實習中學習到超爆多關於UIUX的專業思維與設計心法，另外也深受PDIS各位小夥...'
+        },
+        {
+          avatar: 'placeholder.jpg',
+          name: '翁瑞宏',
+          quote: '每次不只是想要做完而已，而是要做到好上加好',
+          title: 'PDIS實習歷程｜運用UIUX創新思維 — 親手砍掉再重練的政府網站！(下)',
+          content: '嗨囉～我是HUNG，目前就讀於雲科創設所，由於我在PDIS實習中學習到超爆多關於UIUX的專業思維與設計心法，另外也深受PDIS各位小夥...'
         }
       ]
     }
@@ -156,7 +203,7 @@ export default {
   font-size: 1.5rem;
 }
 
-section:not(:last-child) {
+section {
   margin-bottom: 7.5em;
 }
 
@@ -192,6 +239,7 @@ a.button {
   border-color: var(--color-ray);
   border-style: solid;
   font-size: 1.25rem;
+  line-height: 1.2;
 }
 
 #origin h2, #achievement h2, #comment h2 {
@@ -431,13 +479,15 @@ article {
 /** -------------------Achievement------------------- */
 
 #achievement {
-  position: relative;
-  width: 100%;
-  height: 71.11vw;
-  max-height: 1024px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: auto 9.5em auto 9.5em;
+  grid-template-areas: 'title title title' '. . .' '. project .' '. . .';
 }
 
 #achievement h2 {
+  grid-area: title;
+  position: relative;
   text-align: center;
   margin-bottom: 1.5em;
 }
@@ -452,42 +502,101 @@ article {
 }
 
 #achievement .wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  grid-area: project;
+}
+
+#achievement > .bg {
+  grid-column: 1 / 4;
+  grid-row: 2 / 5;
+  position: relative;
+}
+
+#achievement > .bg > .bg-img,
+#achievement > .bg > .bg-mask {
+  position: absolute;
   width: 100%;
   height: 100%;
 }
 
 #achievement > .bg > .bg-img {
-  position: absolute;
   filter: grayscale(1);
   background-image: url('~assets/achievement-bg.jpg');
   background-size: cover;
   background-position: center;
   opacity: .85;
-  width: 100%;
-  height: 100%;
 }
 
 #achievement > .bg > .bg-mask {
-  position: absolute;
   background:  radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0) 0%, rgba(139, 139, 139, 0.5695) 0.01%, rgba(31, 31, 31, 0.85) 100%);
-  width: 100%;
-  height: 100%;
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 767px) {
   #achievement {
-    position: relative;
-    width: 100%;
-    height: unset;
-    min-height: 100vh;
-    max-height: unset;
+    grid-template-rows: auto 2.5em auto 2.5em;
   }
-  #achievement .wrapper {
-    min-height: 100vh;
+}
+
+/** -------------------Comment------------------- */
+#comment {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+  grid-template-areas: 'title image' 'intro image' 'filter filter' 'comments comments';
+  justify-content: center;
+  justify-items: center;
+  padding: 0 9em;
+}
+
+#comment .title {
+  grid-area: title;
+  justify-self: start;
+}
+
+#comment .intro {
+  grid-area: intro;
+}
+
+#comment .image {
+  grid-area: image;
+  max-width: 640px;
+  width: 27.22vw;
+  align-self: center;
+}
+
+#comment > .filter {
+  grid-area: filter;
+  margin-top: 2.5em;
+  margin-bottom: 4.5em;
+}
+
+#comment .comments {
+  grid-area: comments;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 4rem;
+  grid-row-gap: 4rem;
+}
+
+@media screen and (max-width: 992px) {
+  #comment {
+    grid-template-columns: auto;
+    grid-template-areas: 'title' 'image' 'intro' 'filter' 'comments';
+    padding: 0 3em;
+  }
+
+  #comment .title {
+    justify-self: center;
+    margin-bottom: .5rem;
+  }
+
+  #comment .image {
+    width: calc(100vw - 6em);
+    margin-bottom: 1.5rem;
+  }
+
+  #comment .comments {
+    grid-template-columns: auto;
   }
 }
 </style>
