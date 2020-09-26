@@ -634,6 +634,7 @@ article {
   #comment .image {
     width: calc(100vw - 6em);
     margin-bottom: 1.5rem;
+    justify-self: center;
   }
 
   #comment .comments {
