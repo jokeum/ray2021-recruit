@@ -14,7 +14,7 @@
           <b-nav-item href="#origin">
             計畫緣起
           </b-nav-item>
-          <b-nav-item href="#box">
+          <b-nav-item href="#achievement">
             專案成果
           </b-nav-item>
           <b-nav-item href="#comment">
@@ -33,7 +33,7 @@
         遇上 30 位來自各方武林的青年好手，<br>
         究竟會擦出什麼火花呢？<br>
       </p>
-      <a class="button" href="#box">
+      <a class="button" href="#achievement">
         前往專案成果
       </a>
     </section>
@@ -51,6 +51,14 @@
       <article>
         <h3>「改造網站的組合技——六步殺」</h3>
         <p>為確保工作重點一致、檢測後獲得明確結果，PDIS小組整理出適用於2019年RAY計畫的使用者體驗「設計六步驟」。在計畫開始時PDIS即舉辦工作坊，說明此六步驟及執行期程，同學需訪談相關使用者、確認問題以後，方能進行設計和產出原型。此設計六步驟除了讓同學們明確掌握自身專案進度，也可供往後相關單位參考。</p>
+        <ul class="step">
+          <li><img src="~/assets/6-steps/icon_unstanding_user.svg" alt=""><p>了解 User</p></li>
+          <li><img src="~/assets/6-steps/icon_unstanding_user.svg" alt=""><p>議題定義</p></li>
+          <li><img src="~/assets/6-steps/icon_unstanding_user.svg" alt=""><p>Wireframe</p></li>
+          <li><img src="~/assets/6-steps/icon_unstanding_user.svg" alt=""><p>低擬真原型</p></li>
+          <li><img src="~/assets/6-steps/icon_unstanding_user.svg" alt=""><p>高擬真原型</p></li>
+          <li><img src="~/assets/6-steps/icon_unstanding_user.svg" alt=""><p>成果展示</p></li>
+        </ul>
       </article>
       <div class="illustration">
         <div class="photo">
@@ -382,6 +390,32 @@ article {
   position: absolute;
   right: 0;
   top: min(200px, 13.88vw);
+}
+
+#origin ul.step {
+  margin: 1.5em 0;
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  justify-content: sretch;
+  align-items: center;
+  justify-items: center;
+}
+
+#origin ul.step li > img {
+  width: 7.5em;
+  margin: .5em 0;
+}
+
+#origin ul.step li {
+  text-align: center;
+}
+
+@media screen and (max-width: 991px) {
+  #origin ul.step {
+    grid-template-columns: repeat(3, auto);
+  }
 }
 
 .illustration:nth-child(5) .photo {
