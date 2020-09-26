@@ -16,4 +16,3 @@ deploy:
   local_dir: dist/
   on:
     branch: master
-fqdn: ray2020.pdis.dev
