@@ -3,7 +3,12 @@
     <Avatar :name="name" :avatar="avatar" />
     <div class="body">
       <span class="quote">「{{ quote }}」</span>
-      <h4>{{ title }}</h4>
+      <h4>
+        <a
+          :href="url"
+          target="_blank"
+        >{{ title }}</a>
+      </h4>
       <p>{{ content }}</p>
     </div>
   </div>
@@ -25,6 +30,10 @@ export default {
       required: true
     },
     title: {
+      type: String,
+      required: true
+    },
+    url: {
       type: String,
       required: true
     },

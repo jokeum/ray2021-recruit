@@ -102,7 +102,7 @@
         <p>本計畫將由國發會和欲改善數位服務的相關單位提供檢核清單，再經PDIS及見習同學篩選出與民眾關切議題直接相關的數位服務並進行檢核、設計出改善後的原型。專案開始時，我們會辦理講習工作坊；專案中，則透過設置線上討論及問答區，讓同學一同協作；另外也會定期辦理見面會，以確認進度和互相交流。</p>
       </div>
       <div class="filter">
-
+        <p>您可以透過下方的標籤，篩選欲瀏覽的相關文章：</p>
       </div>
       <div class="comments">
         <template v-for="(comment, index) in comments">
@@ -112,6 +112,7 @@
             :name="comment.name"
             :quote="comment.quote"
             :title="comment.title"
+            :url="comment.url"
             :content="comment.content"
           />
         </template>
@@ -156,14 +157,18 @@ export default {
           name: '翁瑞宏',
           quote: '每次不只是想要做完而已，而是要做到好上加好',
           title: 'PDIS實習歷程｜運用UIUX創新思維 — 親手砍掉再重練的政府網站！(下)',
-          content: '嗨囉～我是HUNG，目前就讀於雲科創設所，由於我在PDIS實習中學習到超爆多關於UIUX的專業思維與設計心法，另外也深受PDIS各位小夥...'
+          url: 'https://medium.com/@wengjhdsr/pdis%E5%AF%A6%E7%BF%92%E6%AD%B7%E7%A8%8B-%E9%81%8B%E7%94%A8uiux%E5%89%B5%E6%96%B0%E6%80%9D%E7%B6%AD-%E8%A6%AA%E6%89%8B%E7%A0%8D%E6%8E%89%E5%86%8D%E9%87%8D%E7%B7%B4%E7%9A%84%E6%94%BF%E5%BA%9C%E7%B6%B2%E7%AB%99-%E4%B8%8B-b419d5e3a964',
+          content: '嗨囉～我是HUNG，目前就讀於雲科創設所，由於我在PDIS實習中學習到超爆多關於UIUX的專業思維與設計心法，另外也深受PDIS各位小夥...',
+          tags: ['']
         },
         {
           avatar: 'placeholder.jpg',
           name: '翁瑞宏',
           quote: '每次不只是想要做完而已，而是要做到好上加好',
           title: 'PDIS實習歷程｜運用UIUX創新思維 — 親手砍掉再重練的政府網站！(下)',
-          content: '嗨囉～我是HUNG，目前就讀於雲科創設所，由於我在PDIS實習中學習到超爆多關於UIUX的專業思維與設計心法，另外也深受PDIS各位小夥...'
+          url: 'https://medium.com/@wengjhdsr/pdis%E5%AF%A6%E7%BF%92%E6%AD%B7%E7%A8%8B-%E9%81%8B%E7%94%A8uiux%E5%89%B5%E6%96%B0%E6%80%9D%E7%B6%AD-%E8%A6%AA%E6%89%8B%E7%A0%8D%E6%8E%89%E5%86%8D%E9%87%8D%E7%B7%B4%E7%9A%84%E6%94%BF%E5%BA%9C%E7%B6%B2%E7%AB%99-%E4%B8%8B-b419d5e3a964',
+          content: '嗨囉～我是HUNG，目前就讀於雲科創設所，由於我在PDIS實習中學習到超爆多關於UIUX的專業思維與設計心法，另外也深受PDIS各位小夥...',
+          tags: ['']
         }
       ]
     }
@@ -559,7 +564,8 @@ article {
 #comment .image {
   grid-area: image;
   max-width: 640px;
-  width: 27.22vw;
+  width: calc(100% - 2em);
+  justify-self: end;
   align-self: center;
 }
 
@@ -567,6 +573,7 @@ article {
   grid-area: filter;
   margin-top: 2.5em;
   margin-bottom: 4.5em;
+  justify-self: start;
 }
 
 #comment .comments {
