@@ -72,20 +72,14 @@
         <div class="bg-img"></div>
         <div class="bg-mask"></div>
       </div>
-      <div id="box">
-        <div class="wrapper">
-          <img src="~/assets/placeholder_achievement_image.jpg" alt="">
-          <div class="content">
-            <div class="article">
-              <h3>台北市民服務大平台，<br/>從場地租用看見市民痛點。</h3>
-              <p>行政院國家發展委員會正著手進行政府網站數位服務改善，本次計畫將和國發會及相關部會協作，一同優化政府網站數位服務。</p>
-              <p>本計畫將由國發會和欲改善數位服務的相關單位提供檢核清單，再經PDIS及見習同學篩選出與民眾關切議題直接相關的數位服務並進行檢核、設計出改善後的原型。專案開始時，我們會辦理講習工作坊；專案中，則透過設置線上討論及問答區，讓同學一同協作；另外也會定期辦理見面會，以確認進度和互相交流。</p>
-            </div>
-            <div class="label"></div>
-            <div class="members"></div>
-            <a href="" class="button">看更多</a>
-          </div>
-        </div>
+      <div class="wrapper">
+        <Project
+          :preview-image="projects[0].previewImage"
+          :title="projects[0].title"
+          :intro="projects[0].intro"
+          :tags="projects[0].tags"
+          :members="projects[0].members"
+        />
       </div>
     </section>
     <section id="comment" class="container">
@@ -96,7 +90,38 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data () {
+    return {
+      projects: [
+        {
+          previewImage: 'placeholder_achievement_image.jpg',
+          title: '台北市民服務大平台，\n從場地租用看見市民痛點。',
+          intro: '行政院國家發展委員會正著手進行政府網站數位服務改善，本次計畫將和國發會及相關部會協作，一同優化政府網站數位服務。\n本計畫將由國發會和欲改善數位服務的相關單位提供檢核清單，再經PDIS及見習同學篩選出與民眾關切議題直接相關的數位服務並進行檢核、設計出改善後的原型。專案開始時，我們會辦理講習工作坊；專案中，則透過設置線上討論及問答區，讓同學一同協作；另外也會定期辦理見面會，以確認進度和互相交流。',
+          tags: ['地方政府', '市民服務'],
+          members: [
+            {
+              name: '孫若盈',
+              avatar: null
+            },
+            {
+              name: '李彤',
+              avatar: null
+            },
+            {
+              name: '李佩芸',
+              avatar: null
+            },
+            {
+              name: '張硯涵',
+              avatar: null
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
 </script>
 
 <style>
@@ -161,7 +186,7 @@ a.button {
   font-weight: 700;
   color: #fff;
   background-color: var(--color-ray);
-  padding: .5em 2em;
+  padding: .5rem 2rem;
   width: max-content;
   border-radius: 20px;
   border-color: var(--color-ray);
@@ -426,6 +451,15 @@ article {
   margin-left: 6px;
 }
 
+#achievement .wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
 #achievement > .bg > .bg-img {
   position: absolute;
   filter: grayscale(1);
@@ -444,59 +478,16 @@ article {
   height: 100%;
 }
 
-#box {
-  position: inherit;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-
-#box .wrapper {
-  width: 83.33vw;
-  max-width: 1200px;
-  margin: 0 auto;
-  background: #fff;
-  display: grid;
-  grid-template-columns: auto 1fr;
-}
-
-#box .wrapper > img {
-  grid-column: 1 / 2;
-}
-
-#box .wrapper > .content {
-  grid-column: 2 / 3;
-  padding: 2.5em 2.5em;
-}
-
-#box .wrapper > content h3 {
-  font-weight: 500;
-}
-
-@media screen and (max-width: 768px){
+@media screen and (max-width: 767px){
   #achievement {
     position: relative;
     width: 100%;
+    height: unset;
     min-height: 100vh;
     max-height: unset;
   }
-
-  #box .wrapper {
-    grid-template-columns: auto;
-    grid-template-rows: auto auto;
-  }
-
-  #box .wrapper > img {
-    grid-row: 1 / 2;
-    grid-column: 1 / 2;
-    width: 83.33vw;
-  }
-
-  #box .wrapper > .content {
-    grid-row: 2 / 3;
-    grid-column: 1 / 2;
+  #achievement .wrapper {
+    min-height: 100vh;
   }
 }
 </style>
