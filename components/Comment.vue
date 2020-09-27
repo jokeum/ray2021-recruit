@@ -7,6 +7,7 @@
         <a
           :href="url"
           target="_blank"
+          rel="noopener noreferrer"
         >{{ title }}</a>
       </h4>
       <p>{{ content }}</p>
