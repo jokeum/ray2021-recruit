@@ -1,8 +1,8 @@
 <template>
   <div id="landing">
     <div class="bg">
-      <div class="bg-img"></div>
-      <div class="bg-mask"></div>
+      <div class="bg-img" />
+      <div class="bg-mask" />
     </div>
     <b-navbar toggleable="lg" type="dark">
       <b-navbar-brand>
@@ -39,8 +39,8 @@
     </section>
     <section id="origin" class="container">
       <div class="illustration">
-        <div class="photo"></div>
-        <div class="rectangle"></div>
+        <div class="photo" />
+        <div class="rectangle" />
       </div>
       <article>
         <h2>計畫緣起</h2>
@@ -64,21 +64,21 @@
         <div class="photo">
           <img src="~/assets/photo2.jpg" alt="">
         </div>
-        <div class="rectangle"></div>
+        <div class="rectangle" />
       </div>
       <div class="illustration">
-        <div class="photo"></div>
-        <div class="rectangle"></div>
+        <div class="photo" />
+        <div class="rectangle" />
       </div>
       <article>
         <h3>「主動出擊，部會共同參與」</h3>
       </article>
     </section>
     <section id="achievement">
-      <h2>專案成果 <span class="triangle"></span></h2>
+      <h2>專案成果 <span class="triangle" /></h2>
       <div class="bg">
-        <div class="bg-img"></div>
-        <div class="bg-mask"></div>
+        <div class="bg-img" />
+        <div class="bg-mask" />
       </div>
       <div class="wrapper">
         <template v-for="(project, index) in projects">
@@ -104,16 +104,27 @@
         autoplay
         playsinline
         muted
-        loop/>
+        loop
+      />
       <div class="intro">
         <p>行政院國家發展委員會正著手進行政府網站數位服務改善，本次計畫將和國發會及相關部會協作，一同優化政府網站數位服務。</p>
         <p>本計畫將由國發會和欲改善數位服務的相關單位提供檢核清單，再經PDIS及見習同學篩選出與民眾關切議題直接相關的數位服務並進行檢核、設計出改善後的原型。專案開始時，我們會辦理講習工作坊；專案中，則透過設置線上討論及問答區，讓同學一同協作；另外也會定期辦理見面會，以確認進度和互相交流。</p>
       </div>
       <div class="filter">
         <p>您可以透過下方的標籤，篩選欲瀏覽的相關文章：</p>
+        <template v-for="(tag, i) in commentTags">
+          <label :key="i">
+            <input
+              type="checkbox"
+              v-model="selectedCommentTags"
+              :value="tag"
+            >
+            <span>{{ tag }}</span>
+          </label>
+        </template>
       </div>
       <div class="comments">
-        <template v-for="(comment, index) in comments">
+        <template v-for="(comment, index) in filteredComments">
           <Comment
             :key="index"
             :avatar="comment.avatar"
@@ -159,26 +170,38 @@ export default {
           ]
         }
       ],
-      comments: [
-        {
-          avatar: 'placeholder.jpg',
-          name: '翁瑞宏',
-          quote: '每次不只是想要做完而已，而是要做到好上加好',
-          title: 'PDIS實習歷程｜運用UIUX創新思維 — 親手砍掉再重練的政府網站！(下)',
-          url: 'https://medium.com/@wengjhdsr/pdis%E5%AF%A6%E7%BF%92%E6%AD%B7%E7%A8%8B-%E9%81%8B%E7%94%A8uiux%E5%89%B5%E6%96%B0%E6%80%9D%E7%B6%AD-%E8%A6%AA%E6%89%8B%E7%A0%8D%E6%8E%89%E5%86%8D%E9%87%8D%E7%B7%B4%E7%9A%84%E6%94%BF%E5%BA%9C%E7%B6%B2%E7%AB%99-%E4%B8%8B-b419d5e3a964',
-          content: '嗨囉～我是HUNG，目前就讀於雲科創設所，由於我在PDIS實習中學習到超爆多關於UIUX的專業思維與設計心法，另外也深受PDIS各位小夥...',
-          tags: ['']
-        },
-        {
-          avatar: 'placeholder.jpg',
-          name: '翁瑞宏',
-          quote: '每次不只是想要做完而已，而是要做到好上加好',
-          title: 'PDIS實習歷程｜運用UIUX創新思維 — 親手砍掉再重練的政府網站！(下)',
-          url: 'https://medium.com/@wengjhdsr/pdis%E5%AF%A6%E7%BF%92%E6%AD%B7%E7%A8%8B-%E9%81%8B%E7%94%A8uiux%E5%89%B5%E6%96%B0%E6%80%9D%E7%B6%AD-%E8%A6%AA%E6%89%8B%E7%A0%8D%E6%8E%89%E5%86%8D%E9%87%8D%E7%B7%B4%E7%9A%84%E6%94%BF%E5%BA%9C%E7%B6%B2%E7%AB%99-%E4%B8%8B-b419d5e3a964',
-          content: '嗨囉～我是HUNG，目前就讀於雲科創設所，由於我在PDIS實習中學習到超爆多關於UIUX的專業思維與設計心法，另外也深受PDIS各位小夥...',
-          tags: ['']
-        }
-      ]
+      comments: require('~/static/meta.json'),
+      selectedCommentTags: []
+    }
+  },
+  computed: {
+    commentTags () {
+      return this.comments.reduce((pv, v, i) => {
+        v.tags.forEach((tag) => {
+          if (!pv.includes(tag)) {
+            pv.push(tag)
+          }
+        })
+        return pv
+      }, [])
+    },
+    filteredComments () {
+      if (this.selectedCommentTags.length > 0) {
+        return this.comments.filter(comment =>
+          this.selectedCommentTags.reduce((isSelected, tag) => {
+            return comment.tags.includes(tag) || isSelected
+          }, false))
+      } else {
+        return this.comments
+      }
+    }
+  },
+  mounted () {
+    this.shuffleComments()
+  },
+  methods: {
+    shuffleComments () {
+      this.comments = this.comments.sort(() => Math.random() - 0.5)
     }
   }
 }
@@ -404,7 +427,7 @@ article {
 }
 
 #origin ul.step li > img {
-  width: 7.5em;
+  width: max(min(7.5em, 8.33vw), 60px);
   margin: .5em 0;
 }
 
@@ -583,7 +606,7 @@ article {
   grid-template-areas: 'title image' 'intro image' 'filter filter' 'comments comments';
   justify-content: center;
   justify-items: center;
-  padding: 0 9em;
+  padding: 0 min(7.5em, 8.33vw);
 }
 
 #comment .title {
@@ -610,13 +633,32 @@ article {
   justify-self: start;
 }
 
+#comment > .filter > label {
+  margin: .5em;
+}
+
+#comment > .filter > label > input {
+  display: none;
+}
+
+#comment > .filter > label > span {
+  background-color: #C4C4C4;
+  line-height: 1.5;
+  padding: .5em 1.5em;
+}
+
+#comment > .filter > label > input:checked + span {
+  background-color: var(--color-ray);
+  color: white;
+}
+
 #comment .comments {
   grid-area: comments;
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 4rem;
-  grid-row-gap: 4rem;
+  grid-column-gap: 2em;
+  grid-row-gap: 2em;
 }
 
 @media screen and (max-width: 992px) {
@@ -636,7 +678,9 @@ article {
     margin-bottom: 1.5rem;
     justify-self: center;
   }
+}
 
+@media screen and (max-width: 1200px) {
   #comment .comments {
     grid-template-columns: auto;
   }
