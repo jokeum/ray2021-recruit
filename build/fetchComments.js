@@ -19,7 +19,9 @@ extractSheets({
           if (err) { reject(err) }
           console.log(`fetch ${name} - ${url}...done`)
           const $ = cheerio.load(body)
+          const author = $('meta[name="author"]').attr('content')
           resolve({
+            avatar: author ? $(`img[alt="${author}"]`).attr('src') : null,
             name,
             url,
             quote,

@@ -1,7 +1,7 @@
 <template>
   <div class="avatar">
     <b-img-lazy
-      :src="require(`~/assets/avatars/${avatar}`)"
+      :src="avatarSrc"
       :alt="name"
       rounded="circle"
     />
@@ -21,6 +21,17 @@ export default {
     name: {
       type: String,
       required: true
+    }
+  },
+  computed: {
+    avatarSrc () {
+      if (!this.avatar) {
+        return require('~/assets/avatars/placeholder.jpg')
+      } else if (this.avatar.startsWith('http')) {
+        return this.avatar
+      } else {
+        return require(`~/assets/avatars/${this.avatar}`)
+      }
     }
   }
 }
