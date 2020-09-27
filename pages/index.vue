@@ -25,7 +25,7 @@
     </b-navbar>
     <section id="title" class="container">
       <h1>RAY 4.0</h1>
-      <span>Action by Youth .gov 2020</span>
+      <span>Rescue Action by Youth .gov 2020</span>
       <h2>一場改造公部門網站的熱血行動！</h2>
       <p>
         2020 的暑假，<br>
