@@ -20,7 +20,7 @@ export default {
   props: {
     avatar: {
       type: String,
-      required: true
+      default: 'placeholder.jpg'
     },
     name: {
       type: String,
@@ -28,7 +28,7 @@ export default {
     },
     quote: {
       type: String,
-      required: true
+      default: ''
     },
     title: {
       type: String,
