@@ -71,7 +71,6 @@ export default {
 .comment > .body > h4 {
   margin-top: 1rem;
   color: rgb(97, 97, 97);
-  font-size: 1rem;
 }
 
 .comment > .body > p {
