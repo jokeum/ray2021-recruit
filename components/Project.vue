@@ -1,8 +1,8 @@
 <template>
   <b-card no-body>
     <b-row no-gutters>
-      <b-col md="6">
-        <b-card-img :src="require(`~/assets/${previewImage}`)" />
+      <b-col md="6" style="overflow: hidden">
+        <b-card-img :src="require(`~/assets/${previewImage}`)" style="height: 100%; width: auto; margin: 0 auto;" />
       </b-col>
       <b-col md="6">
         <b-card-body>
