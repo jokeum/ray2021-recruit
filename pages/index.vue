@@ -4,7 +4,7 @@
       <div class="bg-img" />
       <div class="bg-mask" />
     </div>
-    <b-navbar toggleable="lg" type="dark">
+    <b-navbar toggleable="md" type="dark">
       <b-navbar-brand>
         <img src="~assets/pdis-logo-final-inverse.jpg" alt="">
       </b-navbar-brand>
@@ -216,8 +216,8 @@ export default {
   width: 5rem;
 }
 
-@media screen and (min-width: 992px) {
-  nav.navbar-expand-lg {
+@media screen and (min-width: 768px) {
+  nav.navbar-expand-md {
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-areas: 'navbar-collapse navbar-brand';
@@ -297,28 +297,38 @@ a.button {
 }
 
 #title h1 {
-  font-size: 4rem;
+  font-size: 4em;
   margin-bottom: 0;
 }
 
 #title h2 {
-  font-size: 2.25rem;
+  font-size: 2.25em;
   color: var(--color-ray);
 }
 
 #title span {
-  font-size: 1.5rem;
+  font-size: 1.5em;
   font-weight: 500;
 }
 
 #title p {
-  font-size: 1.5rem;
+  font-size: 1.5em;
 }
 
 @media screen and (max-width: 767px){
   #title {
     padding-left: 3em;
     padding-right: 3em;
+  }
+}
+
+/** ---- Fix for landspace smartphone */
+
+@media screen and (orientation: landscape) and (max-height: 480px) {
+  #title {
+    padding-left: 3em;
+    padding-right: 3em;
+    font-size: 12px;
   }
 }
 
