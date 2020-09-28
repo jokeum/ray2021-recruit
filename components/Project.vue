@@ -67,7 +67,6 @@ h2.card-title {
 }
 .card {
   border-radius: unset;
-  max-width: min(calc(100vw - 5em), 1200px);
 }
 
 .card > .row {

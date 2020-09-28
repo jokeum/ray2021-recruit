@@ -80,7 +80,7 @@
         <div class="bg-img" />
         <div class="bg-mask" />
       </div>
-      <div class="wrapper">
+      <Carousel class="wrapper">
         <template v-for="(project, index) in projects">
           <Project
             :key="index"
@@ -91,7 +91,7 @@
             :members="project.members"
           />
         </template>
-      </div>
+      </Carousel>
     </section>
     <section id="comment" class="container">
       <div class="title">
@@ -148,6 +148,30 @@ export default {
         {
           previewImage: 'placeholder_achievement_image.jpg',
           title: '台北市民服務大平台，\n從場地租用看見市民痛點。',
+          intro: '行政院國家發展委員會正著手進行政府網站數位服務改善，本次計畫將和國發會及相關部會協作，一同優化政府網站數位服務。\n本計畫將由國發會和欲改善數位服務的相關單位提供檢核清單，再經PDIS及見習同學篩選出與民眾關切議題直接相關的數位服務並進行檢核、設計出改善後的原型。專案開始時，我們會辦理講習工作坊；專案中，則透過設置線上討論及問答區，讓同學一同協作；另外也會定期辦理見面會，以確認進度和互相交流。',
+          tags: ['地方政府', '市民服務'],
+          members: [
+            {
+              name: '孫若盈',
+              avatar: null
+            },
+            {
+              name: '李彤',
+              avatar: null
+            },
+            {
+              name: '李佩芸',
+              avatar: null
+            },
+            {
+              name: '張硯涵',
+              avatar: null
+            }
+          ]
+        },
+        {
+          previewImage: 'placeholder_achievement_image.jpg',
+          title: '222台北市民服務大平台，\n從場地租用看見市民痛點。',
           intro: '行政院國家發展委員會正著手進行政府網站數位服務改善，本次計畫將和國發會及相關部會協作，一同優化政府網站數位服務。\n本計畫將由國發會和欲改善數位服務的相關單位提供檢核清單，再經PDIS及見習同學篩選出與民眾關切議題直接相關的數位服務並進行檢核、設計出改善後的原型。專案開始時，我們會辦理講習工作坊；專案中，則透過設置線上討論及問答區，讓同學一同協作；另外也會定期辦理見面會，以確認進度和互相交流。',
           tags: ['地方政府', '市民服務'],
           members: [
@@ -322,7 +346,7 @@ a.button {
   }
 }
 
-/** ---- Fix for landspace smartphone */
+/** ---- Fix for landscape smartphone */
 
 @media screen and (orientation: landscape) and (max-height: 480px) {
   #title {
@@ -551,10 +575,12 @@ article {
 /** -------------------Achievement------------------- */
 
 #achievement {
+  --vertial-space: min(4.5em, max(50vw - 600px, 2.5em));
+  --slide-width: min(calc(100vw - 9em), 1200px);
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  grid-template-rows: auto 9.5em auto 9.5em;
-  grid-template-areas: 'title title title' '. . .' '. project .' '. . .';
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas: 'title' 'carousel';
 }
 
 #achievement h2 {
@@ -574,12 +600,12 @@ article {
 }
 
 #achievement .wrapper {
-  grid-area: project;
+  grid-area: carousel;
 }
 
 #achievement > .bg {
-  grid-column: 1 / 4;
-  grid-row: 2 / 5;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
   position: relative;
 }
 
@@ -604,7 +630,15 @@ article {
 
 @media screen and (max-width: 767px) {
   #achievement {
-    grid-template-rows: auto 2.5em auto 2.5em;
+    --vertial-space: 4.5em;
+  }
+}
+
+/** ---- Fix for landscape smartphone */
+
+@media screen and (orientation: landscape) and (max-height: 480px) {
+  #achievement {
+    --vertial-space: 4.5em;
   }
 }
 
