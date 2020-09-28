@@ -1,10 +1,10 @@
 <template>
   <b-card no-body>
     <b-row no-gutters>
-      <b-col md="6" style="overflow: hidden">
+      <b-col lg="6" style="overflow: hidden">
         <b-card-img :src="require(`~/assets/${previewImage}`)" style="height: 100%; width: auto; margin: 0 auto;" />
       </b-col>
-      <b-col md="6">
+      <b-col lg="6">
         <b-card-body>
           <h2 class="card-title" v-html="titleLine" />
           <div class="card-content">
@@ -13,6 +13,14 @@
                 {{ line }}
               </b-card-text>
             </template>
+            <template v-for="(tag, i) in tags">
+              <label :key="i" class="tag">{{ tag }}</label>
+            </template>
+            <div class="members">
+              <template v-for="({ name, avatar }, i) in members">
+                <Avatar :key="i" :name="name" :avatar="avatar" />
+              </template>
+            </div>
           </div>
           <div class="card-action">
             <a href="" class="button">看更多</a>
@@ -87,6 +95,25 @@ h2.card-title {
 
 .card-body > .card-content {
   grid-area: content;
+}
+
+.card-body > .card-content label.tag {
+  background-color: #C4C4C4;
+  line-height: 1.5;
+  padding: .5em 1.5em;
+  margin: .5em;
+}
+
+.card-body > .card-content .members {
+  display: grid;
+  margin: 1em 0;
+  grid-template-columns: repeat(4, auto);
+}
+
+@media screen and (max-width: 767px) {
+  .card-body > .card-content .members {
+    grid-template-columns: repeat(2, auto);
+  }
 }
 
 .card-body > .card-action {
