@@ -45,19 +45,19 @@
       <article>
         <h2>計畫緣起</h2>
         <h3>「網站改造，青年之事」</h3>
-        <p>行政院國家發展委員會正著手進行政府網站數位服務改善，本次計畫將和國發會及相關部會協作，一同優化政府網站數位服務。</p>
-        <p>本計畫將由國發會和欲改善數位服務的相關單位提供檢核清單，再經PDIS及見習同學篩選出與民眾關切議題直接相關的數位服務並進行檢核、設計出改善後的原型。專案開始時，我們會辦理講習工作坊；專案中，則透過設置線上討論及問答區，讓同學一同協作；另外也會定期辦理見面會，以確認進度和互相交流。</p>
+        <p>公部門網站的改造之事，你我都可能成為行動的一份子。</p>
+        <p>從第一屆 RAY 1.0 的政府網站體檢到 RAY 4.0 網站改造，我們持續地邀請青年學子參與其中，藉由各自的設計、資訊專長，共創公部門網站更好的使用者體驗，以及探索政府網站更多的設計可能。今年的計畫我們邀請了 30 位來自不同大專院校之同學，包含服務設計、介面設計、視覺設計、資訊工程等多元背景人才，與國發會及相關部會協作，為七個公部門網站進行一系列地交流、研究與設計。</p>
       </article>
       <article>
         <h3>「改造網站的組合技——六步殺」</h3>
-        <p>為確保工作重點一致、檢測後獲得明確結果，PDIS小組整理出適用於2019年RAY計畫的使用者體驗「設計六步驟」。在計畫開始時PDIS即舉辦工作坊，說明此六步驟及執行期程，同學需訪談相關使用者、確認問題以後，方能進行設計和產出原型。此設計六步驟除了讓同學們明確掌握自身專案進度，也可供往後相關單位參考。</p>
+        <p>為確保工作重點一致、檢測後獲得明確結果，PDIS 小組整理出適用於 2020 年 RAY 計畫的使用者體驗「設計六步驟」。在計畫開始時， PDIS 即舉辦說明會，講解此六步驟及執行期程，並確保同學對於訪談、研究有一定掌握度，以奠基後續設計和原型產出的基礎品質。此設計六步驟除了讓同學們明確掌握自身專案進度，也可供往後相關單位參考。</p>
         <ul class="step">
           <li><img src="~/assets/6-steps/icon_unstanding_user.svg" alt=""><p>了解 User</p></li>
-          <li><img src="~/assets/6-steps/icon_unstanding_user.svg" alt=""><p>議題定義</p></li>
-          <li><img src="~/assets/6-steps/icon_unstanding_user.svg" alt=""><p>Wireframe</p></li>
-          <li><img src="~/assets/6-steps/icon_unstanding_user.svg" alt=""><p>低擬真原型</p></li>
-          <li><img src="~/assets/6-steps/icon_unstanding_user.svg" alt=""><p>高擬真原型</p></li>
-          <li><img src="~/assets/6-steps/icon_unstanding_user.svg" alt=""><p>成果展示</p></li>
+          <li><img src="~/assets/6-steps/icon_issue_define.svg" alt=""><p>議題定義</p></li>
+          <li><img src="~/assets/6-steps/icon_wireframe.svg" alt=""><p>Wireframe</p></li>
+          <li><img src="~/assets/6-steps/icon_lo-fi.svg" alt=""><p>低擬真原型</p></li>
+          <li><img src="~/assets/6-steps/icon_hi-fi.svg" alt=""><p>高擬真原型</p></li>
+          <li><img src="~/assets/6-steps/icon_achievement.svg" alt=""><p>成果展示</p></li>
         </ul>
       </article>
       <div class="illustration">
@@ -72,6 +72,8 @@
       </div>
       <article>
         <h3>「主動出擊，部會共同參與」</h3>
+        <p>數位服務的改造過程必須持續納入多方意見，同時引導不同的行動者參與設計行動，例如：對應部會、相關行政單位等利害關係人，這使整個行動能夠兼容實作可行性、合理業務範圍及更多設計可能。</p>
+        <p>因此，在見習過程中，同學們與部會人員共同參與了多場工作坊，透過一系列的設計工具，深入地瞭解服務提供者的想法；同時建立線下的協作模式，邀請部會持續參與設計過程，以確認進度和互相交流。</p>
       </article>
     </section>
     <section id="achievement">
@@ -147,49 +149,49 @@ export default {
       projects: [
         {
           previewImage: 'placeholder_achievement_image.jpg',
-          title: '台北市民服務大平台，\n從場地租用看見市民痛點。',
-          intro: '行政院國家發展委員會正著手進行政府網站數位服務改善，本次計畫將和國發會及相關部會協作，一同優化政府網站數位服務。\n本計畫將由國發會和欲改善數位服務的相關單位提供檢核清單，再經PDIS及見習同學篩選出與民眾關切議題直接相關的數位服務並進行檢核、設計出改善後的原型。專案開始時，我們會辦理講習工作坊；專案中，則透過設置線上討論及問答區，讓同學一同協作；另外也會定期辦理見面會，以確認進度和互相交流。',
-          tags: ['地方政府', '市民服務'],
+          title: '這裡是 Title，可以用 "\\" + "n" \n進行換行',
+          intro: '這裡是專案簡介文字。請多說一點。但我詞窮，所以 Placehoder 很短。對了，也和 Title 一樣換行喔！',
+          tags: ['這裡是專案標籤', '這是第二個標籤'],
           members: [
             {
-              name: '孫若盈',
+              name: '組員姓名 1',
               avatar: null
             },
             {
-              name: '李彤',
+              name: '大頭貼會外國大叔',
               avatar: null
             },
             {
-              name: '李佩芸',
+              name: '因為是 placeholder',
               avatar: null
             },
             {
-              name: '張硯涵',
+              name: '組員可以很多個喔',
               avatar: null
             }
           ]
         },
         {
-          previewImage: 'placeholder_achievement_image.jpg',
-          title: '222台北市民服務大平台，\n從場地租用看見市民痛點。',
-          intro: '行政院國家發展委員會正著手進行政府網站數位服務改善，本次計畫將和國發會及相關部會協作，一同優化政府網站數位服務。\n本計畫將由國發會和欲改善數位服務的相關單位提供檢核清單，再經PDIS及見習同學篩選出與民眾關切議題直接相關的數位服務並進行檢核、設計出改善後的原型。專案開始時，我們會辦理講習工作坊；專案中，則透過設置線上討論及問答區，讓同學一同協作；另外也會定期辦理見面會，以確認進度和互相交流。',
-          tags: ['地方政府', '市民服務'],
+          previewImage: 'projects/taipei_service/preview.jpg',
+          title: '臺北市民服務大平台，\n從場地租用看見市民痛點。',
+          intro: '此平台由台北市資訊局架設、維護，為整合臺北市政府各機關之申辦案件服務的平台，提供超過 1400 項線上申辦服務。\n團隊經過前期研究後，發現「場地租借服務」是此次改造的潛在標的，除了因場地租用的服務四散在不同的營運方外，服務流程本身也相當繁複。因此，在設計方面，期能透過「效率查找」、「良好的資訊呈現」、「優化租借服務流程」三大目標，解決市民在租借場地上的痛點。\n歡迎點擊下方的「看更多」，瞭解團隊如何進行改造！',
+          tags: ['地方政府網站', '市民服務'],
           members: [
             {
               name: '孫若盈',
-              avatar: null
+              avatar: 'https://miro.medium.com/fit/c/96/96/1*RMruBTjwZ43jgi7mk3iQLg.jpeg'
             },
             {
               name: '李彤',
-              avatar: null
+              avatar: 'https://miro.medium.com/fit/c/96/96/1*ZnmAHts2VwhI8p4RLLE5oQ@2x.jpeg'
             },
             {
               name: '李佩芸',
-              avatar: null
+              avatar: 'https://miro.medium.com/fit/c/96/96/0*LCVUFuFAxk3F3-4q'
             },
             {
               name: '張硯涵',
-              avatar: null
+              avatar: 'https://miro.medium.com/fit/c/96/96/1*LCejxyP2rDhkA0p8hQRjJg.png'
             }
           ]
         }
@@ -575,7 +577,7 @@ article {
 /** -------------------Achievement------------------- */
 
 #achievement {
-  --vertial-space: min(4.5em, max(50vw - 600px, 2.5em));
+  --vertial-space: min(4.5em, max(50vw - 600px, calc(16px + 2em)));
   --slide-width: min(calc(100vw - 9em), 1200px);
   display: grid;
   grid-template-columns: auto;

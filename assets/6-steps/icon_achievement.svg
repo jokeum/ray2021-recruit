@@ -1,0 +1,18 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="60" cy="60" r="59.5" fill="white" stroke="black"/>
+<path d="M75 66V25H99V66H75Z" fill="white" stroke="black"/>
+<path d="M78 58V28H96V58H78Z" fill="white" stroke="black"/>
+<circle r="2" transform="matrix(1 0 0 -1 87 62)" fill="#EE6047" stroke="black"/>
+<path d="M18 79V34H82V79H18Z" fill="white" stroke="black"/>
+<path d="M12 85L18.0397 79H81.9603L88 85H12Z" stroke="black"/>
+<path d="M20 77V36H80V77H20Z" fill="white" stroke="black"/>
+<path d="M26 44.8V40H74V44.8H26Z" stroke="black" stroke-width="0.8"/>
+<path d="M26 76.8003V44.8003H74V76.8003H26Z" stroke="black" stroke-width="0.8"/>
+<path d="M31.6 52.8V48H70V52.8H31.6Z" stroke="black" stroke-width="0.8"/>
+<path d="M31.6 67.2V64H44.4V67.2H31.6Z" stroke="black" stroke-width="0.8"/>
+<path d="M31.6 62.4V59.2H44.4V62.4H31.6Z" fill="#EE6047" stroke="black" stroke-width="0.8"/>
+<path d="M31.6 57.5999V54.3999H44.4V57.5999H31.6Z" stroke="black" stroke-width="0.8"/>
+<path d="M46 67.1999V54.3999H70V67.1999H46Z" stroke="black" stroke-width="0.8"/>
+<path d="M31.6 76.8003V68.8003H70V76.8003H31.6Z" stroke="black" stroke-width="0.8"/>
+<circle r="1.5" transform="matrix(1 0 0 -1 70.5 42.5)" fill="#EE6047" stroke="black" stroke-width="0.75"/>
+</svg>

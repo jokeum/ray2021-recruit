@@ -1,0 +1,12 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="60" cy="60" r="59.5" fill="white" stroke="black"/>
+<circle r="2" transform="matrix(1 0 0 -1 86 40)" fill="#EE6047" stroke="black"/>
+<path d="M30 43V37H90V43H30Z" stroke="black"/>
+<path d="M30 83V43H90V83H30Z" stroke="black"/>
+<path d="M37 53V47H85V53H37Z" stroke="black"/>
+<path d="M37 71V67H53V71H37Z" stroke="black"/>
+<path d="M37 65V61H53V65H37Z" fill="#EE6047" stroke="black"/>
+<path d="M37 59V55H53V59H37Z" stroke="black"/>
+<path d="M55 71V55H85V71H55Z" stroke="black"/>
+<path d="M37 83V73H85V83H37Z" stroke="black"/>
+</svg>
