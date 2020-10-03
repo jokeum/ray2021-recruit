@@ -1,34 +1,28 @@
 <template>
-  <b-card no-body>
-    <b-row no-gutters>
-      <b-col lg="6" style="overflow: hidden">
-        <b-card-img :src="require(`~/assets/${previewImage}`)" style="height: 100%; width: auto; margin: 0 auto;" />
-      </b-col>
-      <b-col lg="6">
-        <b-card-body>
-          <h2 class="card-title" v-html="titleLine" />
-          <div class="card-content">
-            <template v-for="(line, i) in introP">
-              <b-card-text :key="i">
-                {{ line }}
-              </b-card-text>
-            </template>
-            <template v-for="(tag, i) in tags">
-              <label :key="i" class="tag">{{ tag }}</label>
-            </template>
-            <div class="members">
-              <template v-for="({ name, avatar }, i) in members">
-                <Avatar :key="i" :name="name" :avatar="avatar" />
-              </template>
-            </div>
-          </div>
-          <div class="card-action">
-            <a href="" class="button">看更多</a>
-          </div>
-        </b-card-body>
-      </b-col>
-    </b-row>
-  </b-card>
+  <div class="project-card">
+    <div class="preview" :style="{ backgroundImage: `url(${preview})` }"></div>
+    <div class="card-body">
+      <h2 class="card-title" v-html="titleLine" />
+      <div class="card-content">
+        <template v-for="(line, i) in introP">
+          <p :key="`l-${i}`">
+            {{ line }}
+          </p>
+        </template>
+        <template v-for="(tag, i) in tags">
+          <label :key="`tag-${i}`" class="tag">{{ tag }}</label>
+        </template>
+        <div class="members">
+          <template v-for="({ name, avatar }, i) in members">
+            <Avatar :key="`m-${i}`" :name="name" :avatar="avatar" />
+          </template>
+        </div>
+      </div>
+      <div class="card-action">
+        <a href="" class="button">看更多</a>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -61,6 +55,9 @@ export default {
     },
     introP () {
       return this.intro.split('\n')
+    },
+    preview () {
+      return require(`~/assets/${this.previewImage}`)
     }
   }
 }
@@ -73,20 +70,27 @@ h2.card-title {
   font-size: 1.5rem;
   margin-bottom:unset !important;
 }
-.card {
+.project-card{
+  background-color: white;
   border-radius: unset;
+  display: grid;
+  grid-template-areas: 'preview body';
+  grid-template-columns: 50% 50%;
 }
 
-.card > .row {
+.project-card > .preview {
+  grid-area: preview;
+  background-size: cover;
+  background-position: center;
 }
 
 .card-body {
+  grid-area: body;
   padding: 3rem;
   display: grid;
   grid-template-rows: auto 1fr 2.5rem;
   grid-template-areas: 'title' 'content' 'action';
   grid-row-gap: 2em;
-  height: 100%;
 }
 
 .card-body > .card-title {
@@ -108,11 +112,26 @@ h2.card-title {
   display: grid;
   margin: 1em 0;
   grid-template-columns: repeat(4, auto);
+  align-items: start;
 }
 
 @media screen and (max-width: 767px) {
   .card-body > .card-content .members {
     grid-template-columns: repeat(2, auto);
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .project-card{
+    grid-template-columns: 1fr;
+    grid-template-rows: 30vh 1fr;
+    grid-template-areas: 'preview' 'body'
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .card-body {
+    padding: 3rem 1.5rem;
   }
 }
 

@@ -42,6 +42,13 @@ export default {
     'bootstrap-vue/nuxt'
   ],
 
+  bootstrapVue: {
+    componentPlugins: [
+      'NavbarPlugin',
+      'ImagePlugin'
+    ]
+  },
+
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
 
