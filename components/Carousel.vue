@@ -128,6 +128,8 @@ export default {
 }
 
 .carousel > .indicators {
+  align-self: center;
+  margin: 0;
   grid-area: indicators;
   list-style: none;
   padding-left: 0;
