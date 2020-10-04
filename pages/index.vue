@@ -196,7 +196,7 @@ export default {
           ]
         }
       ],
-      comments: require('~/static/meta.json'),
+      comments: require('~/static/comment_meta.json'),
       selectedCommentTags: []
     }
   },
