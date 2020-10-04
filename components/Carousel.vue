@@ -23,7 +23,7 @@
       <div
         ref="slides"
         class="slides"
-        :style="`--slides-num: ${numSlides}; --current-slide: ${index};`"
+        :style="`--slides-num: ${numSlides}; left: calc(-100% * ${index});`"
       >
         <slot />
       </div>
@@ -170,7 +170,6 @@ export default {
   display: grid;
   position: relative;
   grid-template-columns: repeat(var(--slides-num, 3), 100%);
-  left: calc(-100% * var(--current-slide));
   transition: left 0.5s cubic-bezier(0.2, 1, 0.3, 1) 0s;
 }
 </style>
