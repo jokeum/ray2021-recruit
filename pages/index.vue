@@ -146,56 +146,7 @@
 export default {
   data () {
     return {
-      projects: [
-        {
-          previewImage: 'placeholder_achievement_image.jpg',
-          title: '這裡是 Title，可以用 "\\" + "n" \n進行換行',
-          intro: '這裡是專案簡介文字。請多說一點。但我詞窮，所以 Placehoder 很短。對了，也和 Title 一樣換行喔！',
-          tags: ['這裡是專案標籤', '這是第二個標籤'],
-          members: [
-            {
-              name: '組員姓名 1',
-              avatar: null
-            },
-            {
-              name: '大頭貼會外國大叔',
-              avatar: null
-            },
-            {
-              name: '因為是 placeholder',
-              avatar: null
-            },
-            {
-              name: '組員可以很多個喔',
-              avatar: null
-            }
-          ]
-        },
-        {
-          previewImage: 'projects/taipei_service/preview.jpg',
-          title: '臺北市民服務大平台，\n從場地租用看見市民痛點。',
-          intro: '此平台由台北市資訊局架設、維護，為整合臺北市政府各機關之申辦案件服務的平台，提供超過 1400 項線上申辦服務。\n團隊經過前期研究後，發現「場地租借服務」是此次改造的潛在標的，除了因場地租用的服務四散在不同的營運方外，服務流程本身也相當繁複。因此，在設計方面，期能透過「效率查找」、「良好的資訊呈現」、「優化租借服務流程」三大目標，解決市民在租借場地上的痛點。\n歡迎點擊下方的「看更多」，瞭解團隊如何進行改造！',
-          tags: ['地方政府網站', '市民服務'],
-          members: [
-            {
-              name: '孫若盈',
-              avatar: 'https://miro.medium.com/fit/c/96/96/1*RMruBTjwZ43jgi7mk3iQLg.jpeg'
-            },
-            {
-              name: '李彤',
-              avatar: 'https://miro.medium.com/fit/c/96/96/1*ZnmAHts2VwhI8p4RLLE5oQ@2x.jpeg'
-            },
-            {
-              name: '李佩芸',
-              avatar: 'https://miro.medium.com/fit/c/96/96/0*LCVUFuFAxk3F3-4q'
-            },
-            {
-              name: '張硯涵',
-              avatar: 'https://miro.medium.com/fit/c/96/96/1*LCejxyP2rDhkA0p8hQRjJg.png'
-            }
-          ]
-        }
-      ],
+      projects: require('~/static/project_meta.json'),
       comments: require('~/static/comment_meta.json'),
       selectedCommentTags: []
     }
@@ -223,11 +174,12 @@ export default {
     }
   },
   mounted () {
-    this.shuffleComments()
+    this.shuffleData()
   },
   methods: {
-    shuffleComments () {
+    shuffleData () {
       this.comments = this.comments.sort(() => Math.random() - 0.5)
+      this.projects = this.projects.sort(() => Math.random() - 0.5)
     }
   }
 }

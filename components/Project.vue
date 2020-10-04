@@ -57,7 +57,7 @@ export default {
       return this.intro.split('\n')
     },
     preview () {
-      return require(`~/assets/${this.previewImage}`)
+      return require(`~/assets/projects/${this.previewImage}`)
     }
   }
 }
