@@ -6,9 +6,9 @@ branches:
     - master
 before_deploy:
   - npm run build
+  - echo "ray2020.pdis.dev" > CNAME
 script:
   - npm run generate
-  - echo "ray2020.pdis.dev" >> dist/CNAME
 deploy:
   skip_cleanup: true
   strategy: git
