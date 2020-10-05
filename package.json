@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
+    "gen-comment-meta": "node build/fetchComments.js 2> static/comment_meta.json",
+    "gen-project-meta": "node build/fetchProjects.js 2> static/project_meta.json",
+    "dev": "npm run gen-comment-meta && npm run gen-project-meta && nuxt",
+    "build": "npm run gen-comment-meta && npm run gen-project-meta && nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "generate": "npm run gen-comment-meta && npm run gen-project-meta && nuxt generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "npm run lint:js"
   },
