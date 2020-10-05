@@ -118,8 +118,8 @@
         <template v-for="(tag, i) in commentTags">
           <label :key="i">
             <input
-              type="checkbox"
               v-model="selectedCommentTags"
+              type="checkbox"
               :value="tag"
             >
             <span>{{ tag }}</span>

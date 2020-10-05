@@ -1,6 +1,6 @@
 <template>
   <div class="project-card">
-    <div class="preview" :style="{ backgroundImage: `url(${preview})` }"></div>
+    <div class="preview" :style="{ backgroundImage: `url(${preview})` }" />
     <div class="card-body">
       <h2 class="card-title" v-html="titleLine" />
       <div class="card-content">
