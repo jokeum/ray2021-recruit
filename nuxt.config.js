@@ -11,7 +11,7 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
@@ -39,7 +39,20 @@ export default {
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
     // https://go.nuxtjs.dev/bootstrap
-    'bootstrap-vue/nuxt'
+    'bootstrap-vue/nuxt',
+    [
+      'nuxt-social-meta',
+      {
+        url: 'https://ray.pdis.nat.gov.tw',
+        title: 'Rescue Action by Youth .gov 4.0',
+        site_name: 'Rescue Action by Youth .gov',
+        description: '一場改造公部門網站的熱血行動！',
+        img: '/repo-social-preivew-crop.jpg',
+        locale: 'zh-TW',
+        twitter_card: '一場改造公部門網站的熱血行動！',
+        themeColor: '#ee6047'
+      }
+    ]
   ],
 
   bootstrapVue: {
