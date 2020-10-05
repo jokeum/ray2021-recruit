@@ -10,18 +10,18 @@ extractSheets({
     name: row['姓名'],
     url: row['連結'],
     quote: row.quote,
-    tags: row.tag ? row.tag.split(',') : []
+    tags: row.tag ? row.tag.split(',') : [],
+    avatar: row.avatar
   }))
   const promiseList = metas.filter(({ url }) => url !== null)
-    .map(({ name, url, quote, tags }) => new Promise((resolve, reject) => {
+    .map(({ name, url, quote, tags, avatar }) => new Promise((resolve, reject) => {
       request(encodeURI(url),
         function (err, r, body) {
           if (err) { reject(err) }
           console.log(`fetch ${name} - ${url}...done`)
           const $ = cheerio.load(body)
-          const author = $('meta[name="author"]').attr('content')
           resolve({
-            avatar: author ? $(`img[alt="${author}"]`).attr('src') : null,
+            avatar,
             name,
             url,
             quote,

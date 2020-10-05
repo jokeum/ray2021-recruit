@@ -1,5 +1,3 @@
-const request = require('request')
-const cheerio = require('cheerio')
 const { extractSheets } = require('spreadsheet-to-json')
 
 async function main () {
@@ -12,7 +10,8 @@ async function main () {
         members: data.WWD.map(row => ({
           project: row['分組'],
           name: row['姓名'],
-          url: row['連結']
+          url: row['連結'],
+          avatar: row.avatar
         })),
         projects: data['主頁專案小卡'].map(row => ({
           project: row['組別'],
@@ -26,31 +25,6 @@ async function main () {
     })
   }))
 
-  const promiseList = metas.members.map(({ name, url, project }) =>
-    new Promise((resolve, reject) => {
-      if (url === null) {
-        resolve(resolve({
-          name,
-          project
-        }))
-      } else {
-        request(encodeURI(url),
-          function (err, r, body) {
-            if (err) { reject(err) }
-            console.log(`fetch ${name} - avatar - done`)
-            const $ = cheerio.load(body)
-            const author = $('meta[name="author"]').attr('content')
-            resolve({
-              avatar: author ? $(`img[alt="${author}"]`).attr('src') : null,
-              name,
-              project
-            })
-          })
-      }
-    }))
-
-  const members = await Promise.all(promiseList)
-
   const merged = metas.projects.map(({ project, title, intro, issuu, tags, previewImage }) => ({
     project,
     title,
@@ -58,7 +32,7 @@ async function main () {
     issuu,
     tags,
     previewImage,
-    members: members.filter(({ project: group }) => group === project)
+    members: metas.members.filter(({ project: group }) => group === project)
   }))
 
   console.error(JSON.stringify(merged))
