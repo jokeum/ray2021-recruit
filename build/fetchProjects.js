@@ -18,6 +18,7 @@ async function main () {
           project: row['組別'],
           title: row['大標'],
           intro: row['簡介文案'],
+          issuu: row.IssuuUrl,
           tags: row.Tag.split(','),
           previewImage: `${row.group_id}/preview.jpg`
         }))
@@ -50,10 +51,11 @@ async function main () {
 
   const members = await Promise.all(promiseList)
 
-  const merged = metas.projects.map(({ project, title, intro, tags, previewImage }) => ({
+  const merged = metas.projects.map(({ project, title, intro, issuu, tags, previewImage }) => ({
     project,
     title,
     intro,
+    issuu,
     tags,
     previewImage,
     members: members.filter(({ project: group }) => group === project)

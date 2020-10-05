@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="card-action">
-        <a href="" class="button">看更多</a>
+        <a :href="linkTo" target="_blank" class="button">看更多</a>
       </div>
     </div>
   </div>
@@ -46,6 +46,10 @@ export default {
     },
     members: {
       type: Array,
+      required: true
+    },
+    linkTo: {
+      type: String,
       required: true
     }
   },

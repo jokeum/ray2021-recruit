@@ -91,6 +91,7 @@
             :intro="project.intro"
             :tags="project.tags"
             :members="project.members"
+            :link-to="project.issuu"
           />
         </template>
       </Carousel>
