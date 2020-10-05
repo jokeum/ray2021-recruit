@@ -1,22 +1,108 @@
 <template>
   <div>
-    <section id="header" class="container">
+    <section id="header">
       <span class="before">Before</span>
       <span class="after">After</span>
       <div class="marvel-device macbook" :style="`font-size: ${deviceFontSize}`">
-        <div class="top-bar"></div>
-        <div class="camera"></div>
+        <div class="top-bar" />
+        <div class="camera" />
         <div class="screen">
-          <div class="before"></div>
-          <div class="after"></div>
+          <div class="before" :style="{ backgroundImage: `url(${meta.images.landing.before})` }" />
+          <div class="after" :style="{ backgroundImage: `url(${meta.images.landing.after})` }" />
         </div>
-        <div class="bottom-bar"></div>
+        <div class="bottom-bar" />
       </div>
       <div class="landing">
-        <h1>台北市市民服務大平台，從場地租用看見市民痛點</h1>
+        <h1 v-html="title" />
+        <div class="members">
+          <template v-for="({ name, avatar }, i) in members">
+            <Avatar :key="`m-${i}`" :name="name" :avatar="avatar" />
+          </template>
+        </div>
+        <div class="intro">
+          <template v-for="(line, i) in introLines">
+            <p :key="`l-${i}`">
+              {{ line }}
+            </p>
+          </template>
+        </div>
       </div>
-      <a href="" class="button" id="view-now">看現行網站</a>
-      <a href="" class="button" id="view-after">看改造版本</a>
+      <a id="view-now" href="" class="button">看現行網站</a>
+      <a id="view-after" href="" class="button">看改造版本</a>
+    </section>
+    <section id="abstract">
+      <nuxt-content class="container" :document="abstract" />
+    </section>
+    <section id="mc">
+      <div class="screentone" />
+      <nuxt-content class="container" :document="mc" />
+    </section>
+
+    <section id="wireframe">
+      <h4>Wireframe A</h4>
+      <h4>Wireframe B</h4>
+      <div class="marvel-device macbook" :style="`font-size: ${deviceFontSizeSmall}`">
+        <div class="top-bar" />
+        <div class="camera" />
+        <div class="screen" :style="{ backgroundImage: `url(${meta.images.wireframe.a_version})` }" />
+        <div class="bottom-bar" />
+      </div>
+      <div class="marvel-device macbook" :style="`font-size: ${deviceFontSizeSmall}`">
+        <div class="top-bar" />
+        <div class="camera" />
+        <div class="screen" :style="{ backgroundImage: `url(${meta.images.wireframe.b_version})` }" />
+        <div class="bottom-bar" />
+      </div>
+    </section>
+
+    <section id="conclusion">
+      <nuxt-content class="container" :document="conclusion" />
+    </section>
+
+    <section id="preview">
+      <div class="marvel-device macbook" :style="`font-size: ${deviceFontSize}`">
+        <div class="top-bar" />
+        <div class="camera" />
+        <div class="screen">
+          <video :src="`/projects/taipei_service/${meta.previewVideo}`" autoplay playsinline muted loop />
+        </div>
+        <div class="bottom-bar" />
+      </div>
+    </section>
+
+    <section id="features">
+      <nuxt-content class="container" :document="features" />
+    </section>
+
+    <section id="archivement">
+      <h4 class="slogan">
+        上面還看不夠嗎？快來操作我們的設計成果
+      </h4>
+      <div class="screens-wrapper">
+        <div class="marvel-device macbook before" :style="`font-size: ${deviceFontSize}`">
+          <div class="top-bar" />
+          <div class="camera" />
+          <div class="screen" :style="{ backgroundImage: `url(${meta.images.demon.before})` }" />
+          <div class="bottom-bar" />
+        </div>
+        <div class="marvel-device macbook after" :style="`font-size: ${deviceFontSize}`">
+          <div class="top-bar" />
+          <div class="camera" />
+          <div class="screen" :style="{ backgroundImage: `url(${meta.images.demon.after})` }" />
+          <div class="bottom-bar" />
+        </div>
+      </div>
+
+      <a href="" class="button view-now">看現行網站</a>
+      <a href="" class="button view-after">看改造版本</a>
+    </section>
+
+    <img :src="meta.images.demon.all" alt="" class="bg-img">
+    <img :src="meta.images.demon.photography" alt="" class="bg-img">
+
+    <section id="document">
+      <h4>詳細專案文件</h4>
+      <iframe allowfullscreen allow="fullscreen" style="border:none;width:100%;height:650px;" :src="`//e.issuu.com/embed.html?d=${meta.issuu}&pageLayout=singlePage&u=pdis.tw`" />
     </section>
   </div>
 </template>
@@ -24,9 +110,50 @@
 <script>
 export default {
   layout: 'project',
+  async asyncData ({ params, $content }) {
+    function genImagesSet (images, project) {
+      if (images === undefined || images === null) {
+        return null
+      }
+
+      if (typeof images === 'string') {
+        return require(`~/assets/projects/${project}/${images}`)
+      }
+
+      return Object.keys(images).reduce((previous, key) => Object.assign(previous, { [key]: genImagesSet(images[key], project) }), {})
+    }
+
+    const { title, intro, images, tags, members, preview_video: previewVideo, participating_photos: participatingPhotos, issuu } = (await $content(`${params.project}`).where({ slug: 'index' }).fetch())[0]
+    const meta = { title, intro, images, previewVideo, tags, members, participatingPhotos, issuu }
+
+    meta.images = genImagesSet(meta.images, params.project)
+
+    const abstract = (await $content(`${params.project}`).where({ slug: 'abstract' }).fetch())[0]
+    const mc = (await $content(`${params.project}`).where({ slug: 'mc' }).fetch())[0]
+    const conclusion = (await $content(`${params.project}`).where({ slug: 'conclusion' }).fetch())[0]
+    const features = (await $content(`${params.project}`).where({ slug: 'features' }).fetch())[0]
+    return {
+      project: params.project, meta, abstract, mc, conclusion, features
+    }
+  },
   data () {
     return {
-      deviceFontSize: 'calc(720 / 1048 * 1px)'
+      deviceFontSize: 'calc(720 / 1048 * 1px)',
+      deviceFontSizeSmall: 'calc(720 / 1048 * .75px)'
+    }
+  },
+  computed: {
+    title () {
+      return this.meta.title.replace('\\n', '<br />')
+    },
+    introLines () {
+      return this.meta.intro.split('\\n')
+    },
+    members () {
+      const projectMetas = require('~/static/project_meta.json')
+      const project = projectMetas.find(project => project.slug === this.$route.params.project)
+      const collaborators = project ? project.members : projectMetas[0].members
+      return this.meta.members.map(member => collaborators.find(collaborator => collaborator.name === member))
     }
   },
   mounted () {
@@ -40,8 +167,13 @@ export default {
       if (vw >= 992) {
         const scaling = Math.min(vw, 1440) / 1440 * 720 / 1048
         this.deviceFontSize = `calc(${scaling} * 1px)`
+        this.deviceFontSizeSmall = `calc(${scaling} * .75px)`
+      } else if (vw >= 767) {
+        this.deviceFontSize = '.45px'
+        this.deviceFontSizeSmall = '.45px'
       } else {
-        this.deviceFontSize = '.47328px'
+        this.deviceFontSize = '.3px'
+        this.deviceFontSizeSmall = '.3px'
       }
     }
   }
@@ -49,6 +181,27 @@ export default {
 </script>
 
 <style>
+
+#header > .macbook > .screen > .before,
+#header > .macbook > .screen > .after,
+#wireframe > .macbook > .screen,
+#archivement .macbook > .screen {
+  background-size: cover;
+  background-position: left top;
+}
+
+#header > .button,
+#archivement > .button {
+  color: white;
+  font-weight: 700;
+  padding: .5rem 2rem;
+  width: max-content;
+  border-radius: 20px;
+  border-style: solid;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
 #header {
   background: linear-gradient(to right, #E0E0E0 25%, #1EBCC6 25%);
   min-height: 1024px;
@@ -96,11 +249,23 @@ span.after {
 
 .landing {
   grid-area: landing;
+  align-self: center;
+  justify-self: center;
+  max-width: 400px;
   color: white;
 }
 
 .landing h1 {
+  font-size: 2rem;
   line-break: strict;
+}
+
+.landing .members {
+  align-self: center;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  align-items: start;
+  justify-content: space-around;
 }
 
 #header > .macbook {
@@ -117,28 +282,8 @@ span.after {
   height: 100%;
 }
 
-#header > .macbook > .screen > .before {
-  background-image: url('~assets/projects/sample/before.jpg');
-  background-size: 200%;
-  background-position: left top;
-}
-
-#header > .macbook > .screen > .after {
-  background-image: url('~assets/projects/sample/after.jpg');
-  background-size: 200%;
-  background-position: left top;
-}
-
 #header > .button {
   margin: 3em;
-  color: white;
-  font-weight: 700;
-  padding: .5rem 2rem;
-  width: max-content;
-  border-radius: 20px;
-  border-style: solid;
-  font-size: 1.25rem;
-  line-height: 1.2;
 }
 
 @media screen and (max-width: 991px) {
@@ -157,8 +302,212 @@ span.after {
   }
 
   .landing {
-    background-color: white;
-    color: inherit;
+    max-width: unset;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 'members title' 'members intro';
+    grid-column-gap: 2em;
   }
+
+  .landing .members {
+    grid-area: members;
+    grid-template-columns: repeat(2, auto);
+    justify-self: end;
+    color: initial;
+    grid-column-gap: 2em;
+  }
+
+  .landing h1 {
+    grid-area: title;
+    align-self: end;
+  }
+
+  .landing .intro {
+    grid-area: intro;
+    align-self: start;
+  }
+}
+
+#abstract, #conclusion, #preview, #features, #document {
+  margin: 3em;
+}
+
+#abstract .nuxt-content {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  grid-gap: 3em;
+}
+
+#abstract .nuxt-content > figure {
+  text-align: center;
+}
+
+#abstract .nuxt-content > figure > img {
+  max-width: 400px;
+  width: 100%;
+}
+
+#abstract .nuxt-content > figure,
+#abstract .nuxt-content > .content {
+  grid-column: var(--pos-start) / var(--pos-end);
+}
+
+@media screen and (max-width: 991px) {
+  #abstract .nuxt-content {
+    grid-template-columns: 1fr;
+  }
+  #abstract .nuxt-content > figure,
+  #abstract .nuxt-content > .content {
+    grid-column: 1 / 2;
+    grid-row: var(--pos-mob-s) / var(--pos-mob-e);
+  }
+}
+
+#mc {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  justify-content: center;
+  align-items: center;
+  grid-column-gap: 5em;
+}
+
+#mc .container {
+  grid-column: 2 / 3;
+  max-width: unset;
+}
+
+#mc .screentone {
+  grid-column: 1 / 2;
+  background-image: radial-gradient(circle farthest-corner at center, #1EBCC6 27%, #fff 27%);
+  background-size: 10px 10px;
+  width: 22vw;
+  height: 356px;
+  max-width: 310px;
+}
+
+#mc h4 {
+  margin: 0 1.5em 0 0;
+}
+
+@media screen and (max-width: 767px) {
+  #mc {
+    grid-column-gap: 2.5em;
+  }
+}
+
+#wireframe h4 {
+  text-align: center;
+}
+
+#wireframe {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 3em;
+}
+
+@media screen and (max-width: 991px) {
+  #wireframe {
+    grid-template-columns: 1fr;
+    grid-row-gap: 1.5em;
+  }
+  #wireframe h4:first-child {
+    grid-row: 1 / 2;
+  }
+  #wireframe h4:nth-child(2) {
+    grid-row: 3 / 4;
+  }
+  #wireframe .macbook:nth-child(3) {
+    grid-row: 2 / 3;
+  }
+  #wireframe .macbook:nth-child(4) {
+    grid-row: 4 / 5;
+  }
+  #wireframe h4 {
+    margin-top: 1.5em;
+  }
+}
+
+#preview {
+  display: flex;
+  justify-content: center;
+}
+
+#preview > .macbook > .screen > video {
+  width: 100%;
+}
+
+#features .nuxt-content figure {
+  margin-top: 5em;
+  margin-bottom: 2.5em;
+}
+
+#features .nuxt-content figure > img {
+  max-width: 85vw;
+  margin: 0 auto;
+}
+
+#archivement {
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 8em;
+  grid-template-areas:  'slogan slogan' 'wrapper wrapper' 'button-now button-after';
+}
+
+#archivement > .screens-wrapper {
+  grid-area: wrapper;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 8em;
+  grid-template-areas: 'screen-before screen-after';
+  justify-content: center;
+  overflow: hidden;
+}
+
+#archivement > .slogan {
+  grid-area: slogan;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+#archivement > .screens-wrapper > .macbook.before {
+  grid-area: screen-before;
+}
+
+#archivement > .screens-wrapper > .macbook.after {
+  grid-area: screen-after;
+}
+
+#archivement > .button {
+  margin: 3em auto;
+}
+
+#archivement > .button.view-now {
+  grid-area: button-now;
+  background-color: var(--color-gray);
+  border-color: var(--color-gray);
+  justify-self: center;
+}
+
+#archivement > .button.view-after {
+  grid-area: button-after;
+  background-color: var(--color-ray);
+  border-color: var(--color-ray);
+  justify-self: center;
+}
+
+#archivement a {
+  color: white;
+}
+
+.bg-img {
+  width: 100%;
+}
+
+#document h4 {
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5em;
 }
 </style>

@@ -1,0 +1,25 @@
+title: 臺北市民服務大平台，\n從場地租用看見市民痛點。
+intro: 「場地租借服務」是此次改造的潛在標的，除了因場地租用的服務四散在不同的營運方外，服務流程本身也相當繁複。在設計面，透過「效率查找」、「良好的資訊呈現」、「優化租借服務流程」三大目標，解決市民在租借場地上的痛點。
+images:
+  landing:
+    before: landing_before.jpg
+    after: landing_after.jpg
+  wireframe:
+    a_version: contentdesign_wireframeA.jpg
+    b_version: contentdesign_wireframeB.jpg
+  demon:
+    before: demon_before.jpg
+    after: demon_after.jpg
+    all: demon_all.jpg
+    photography: demon_images.jpg
+preview_video: contentdesign_design1_1080.mp4
+tags:
+  - 地方政府網站
+  - 市民服務
+members:
+  - 李彤
+  - 孫若盈
+  - 李佩芸
+  - 張硯涵
+participating_photos:
+issuu: __________final_presentation
