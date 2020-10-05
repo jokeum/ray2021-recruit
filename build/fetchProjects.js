@@ -37,7 +37,7 @@ async function main () {
         request(encodeURI(url),
           function (err, r, body) {
             if (err) { reject(err) }
-            console.log(`fetch ${name} - aravar - done`)
+            console.log(`fetch ${name} - avatar - done`)
             const $ = cheerio.load(body)
             const author = $('meta[name="author"]').attr('content')
             resolve({
