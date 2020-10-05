@@ -261,6 +261,12 @@ a.button {
   color: var(--color-ray);
 }
 
+@media screen and (max-width: 767px) {
+  #landing > .bg > .bg-img {
+    background-image: url('~assets/title-bg-small.jpg');
+  }
+}
+
 /** -------------------Title------------------- **/
 #title {
   position: relative;
@@ -585,6 +591,9 @@ article {
 @media screen and (max-width: 767px) {
   #achievement {
     --vertial-space: 4.5em;
+  }
+  #achievement > .bg > .bg-img {
+    background-image: url('~assets/achievement-bg-small.jpg');
   }
 }
 
