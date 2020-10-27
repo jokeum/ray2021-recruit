@@ -27,8 +27,8 @@
           </template>
         </div>
       </div>
-      <a id="view-now" href="" class="button">看現行網站</a>
-      <a id="view-after" href="" class="button">看改造版本</a>
+      <a id="view-now" :href="meta.links.current_site" target="_blank" class="button">看現行網站</a>
+      <a id="view-after" :href="meta.links.prototype" target="_blank" class="button">看改造版本</a>
     </section>
     <section id="abstract">
       <nuxt-content class="container" :document="abstract" />
@@ -93,8 +93,8 @@
         </div>
       </div>
 
-      <a href="" class="button view-now">看現行網站</a>
-      <a href="" class="button view-after">看改造版本</a>
+      <a :href="meta.links.current_site" target="_blank" class="button view-now">看現行網站</a>
+      <a :href="meta.links.prototype" target="_blank" class="button view-after">看改造版本</a>
     </section>
 
     <img :src="meta.images.demon.all" alt="" class="bg-img">
@@ -123,8 +123,8 @@ export default {
       return Object.keys(images).reduce((previous, key) => Object.assign(previous, { [key]: genImagesSet(images[key], project) }), {})
     }
 
-    const { title, intro, images, tags, members, preview_video: previewVideo, participating_photos: participatingPhotos, issuu } = (await $content(`${params.project}`).where({ slug: 'index' }).fetch())[0]
-    const meta = { title, intro, images, previewVideo, tags, members, participatingPhotos, issuu }
+    const { title, intro, images, tags, members, preview_video: previewVideo, issuu, links } = (await $content(`${params.project}`).where({ slug: 'index' }).fetch())[0]
+    const meta = { title, intro, images, previewVideo, tags, members, issuu, links }
 
     meta.images = genImagesSet(meta.images, params.project)
 
