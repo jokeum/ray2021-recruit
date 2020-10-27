@@ -443,7 +443,7 @@ span.after {
 }
 
 #features .nuxt-content figure > img {
-  max-width: 85vw;
+  max-width: 100%;
   margin: 0 auto;
 }
 
