@@ -80,8 +80,12 @@ export default {
   },
 
   generate: {
-    routes: [
-      'taipei_service'
-    ]
+    // async routes () {
+    //   // const { $content } = require('@nuxt/content')
+    //   // const files = await $content({ deep: true }).only(['path']).fetch()
+
+    //   // return files.map(file => /\/index$/.test(file.path) ? file.path.replace(/\/index$/, '/') : file.path)
+    // }
+    routes: ['/taipei_service']
   }
 }
