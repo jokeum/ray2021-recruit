@@ -1,0 +1,29 @@
+title: 臺北市立聯合醫院，\n在專業與易用間探索網路掛號的設計可能。
+intro:  經團隊診斷後。系統目前有三大核心問題「版面配置紊亂」、「資訊回饋不明確」，以及「訊息不符合使用者認知」。歷經多次設計與驗證後，團隊透過「版面重整、線上下資訊整合、依症狀查找科別」等特色功能，打造了全新的掛號體驗。
+images:
+  landing:
+    before: landing_before.jpg
+    after: landing_after.jpg
+  wireframe:
+    a_version: contentdesign_wireframeA.jpg
+    b_version: contentdesign_wireframeB.jpg
+  demon:
+    before: demon_before.jpg
+    after: demon_after.jpg
+    all: demon_all.jpg
+    photography:
+preview_video: contentdesign_design1.mov
+tags:
+  - 地方政府網站
+  - 市民服務
+members:
+  - 賴逸丞
+  - 彭泰維
+  - 龔俐霏
+  - 林瀚軒
+  - 翁暄奇
+issuu: 831___final_pdf
+links:
+  current_site: https://webreg.tpech.gov.tw/RegOnline1.aspx
+  prototype:
+theme_color: '#3573C9'

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :style="`--theme-color: ${meta.themeColor}`">
     <section id="header">
       <span class="before">Before</span>
       <span class="after">After</span>
@@ -64,7 +64,7 @@
         <div class="top-bar" />
         <div class="camera" />
         <div class="screen">
-          <video :src="`/projects/taipei_service/${meta.previewVideo}`" autoplay playsinline muted loop />
+          <video :src="`/projects/${project}/${meta.previewVideo}`" autoplay playsinline muted loop />
         </div>
         <div class="bottom-bar" />
       </div>
@@ -102,7 +102,7 @@
 
     <section id="document">
       <h4>詳細專案文件</h4>
-      <iframe allowfullscreen allow="fullscreen" style="border:none;width:100%;height:650px;" :src="`//e.issuu.com/embed.html?d=${meta.issuu}&pageLayout=singlePage&u=pdis.tw`" />
+      <iframe allowfullscreen allow="fullscreen" style="border:none;width:100%;height:80vh;" :src="`//e.issuu.com/embed.html?d=${meta.issuu}&pageLayout=singlePage&u=pdis.tw`" />
     </section>
   </div>
 </template>
@@ -117,14 +117,18 @@ export default {
       }
 
       if (typeof images === 'string') {
-        return require(`~/assets/projects/${project}/${images}`)
+        try {
+          return require(`~/assets/projects/${project}/${images}`)
+        } catch (e) {
+          return null
+        }
       }
 
       return Object.keys(images).reduce((previous, key) => Object.assign(previous, { [key]: genImagesSet(images[key], project) }), {})
     }
 
-    const { title, intro, images, tags, members, preview_video: previewVideo, issuu, links } = (await $content(`${params.project}`).where({ slug: 'index' }).fetch())[0]
-    const meta = { title, intro, images, previewVideo, tags, members, issuu, links }
+    const { title, intro, images, tags, members, preview_video: previewVideo, issuu, links, theme_color: themeColor } = (await $content(`${params.project}`).where({ slug: 'index' }).fetch())[0]
+    const meta = { title, intro, images, previewVideo, tags, members, issuu, links, themeColor }
 
     meta.images = genImagesSet(meta.images, params.project)
 
@@ -226,7 +230,7 @@ export default {
 }
 
 #header {
-  background: linear-gradient(to right, #E0E0E0 25%, #1EBCC6 25%);
+  background: linear-gradient(to right, #E0E0E0 25%, var(--theme-color) 25%);
   min-height: 1024px;
   display: grid;
   grid-template-rows: 1fr auto 1fr;
@@ -311,7 +315,7 @@ span.after {
 
 @media screen and (max-width: 991px) {
   #header {
-    background: linear-gradient(to right, #E0E0E0 50%, #1EBCC6 50%);
+    background: linear-gradient(to right, #E0E0E0 50%, var(--theme-color) 50%);
     grid-template-rows: auto auto auto 1fr;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: 'before after' 'macbook macbook' 'view_now view_after' 'landing landing';
@@ -398,7 +402,7 @@ span.after {
 
 #mc .screentone {
   grid-column: 1 / 2;
-  background-image: radial-gradient(circle farthest-corner at center, #1EBCC6 27%, #fff 27%);
+  background-image: radial-gradient(circle farthest-corner at center, var(--theme-color) 27%, #fff 27%);
   background-size: 10px 10px;
   width: 22vw;
   height: 356px;
