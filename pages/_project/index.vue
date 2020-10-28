@@ -74,7 +74,7 @@
       <nuxt-content class="container" :document="features" />
     </section>
 
-    <section id="archivement">
+    <section id="achievement">
       <h4 class="slogan">
         上面還看不夠嗎？快來操作我們的設計成果
       </h4>
@@ -167,10 +167,10 @@ export default {
       if (vw >= 992) {
         const scaling = Math.min(vw, 1440) / 1440 * 720 / 1048
         this.deviceFontSize = `calc(${scaling} * 1px)`
-        this.deviceFontSizeSmall = `calc(${scaling} * .75px)`
+        this.deviceFontSizeSmall = `calc(${scaling} * .7px)`
       } else if (vw >= 767) {
         this.deviceFontSize = '.45px'
-        this.deviceFontSizeSmall = '.45px'
+        this.deviceFontSizeSmall = '.4px'
       } else {
         this.deviceFontSize = '.3px'
         this.deviceFontSizeSmall = '.3px'
@@ -185,13 +185,13 @@ export default {
 #header > .macbook > .screen > .before,
 #header > .macbook > .screen > .after,
 #wireframe > .macbook > .screen,
-#archivement .macbook > .screen {
+#achievement .macbook > .screen {
   background-size: cover;
   background-position: left top;
 }
 
 #header > .button,
-#archivement > .button {
+#achievement > .button {
   color: white;
   font-weight: 700;
   padding: .5rem 2rem;
@@ -200,6 +200,29 @@ export default {
   border-style: solid;
   font-size: 1.25rem;
   line-height: 1.2;
+}
+
+#abstract, #conclusion, #document {
+  margin: 8em 7.5em;
+}
+
+#preview {
+  margin: 0 7.5em;
+}
+
+#features {
+  margin-left: 7.5em;
+  margin-right: 7.5em;
+  margin-top: 2.5em;
+}
+
+#mc {
+  margin: 12em 0;
+}
+
+#achievement {
+  margin-top: 20em;
+  margin-bottom: 13em;
 }
 
 #header {
@@ -328,10 +351,6 @@ span.after {
   }
 }
 
-#abstract, #conclusion, #preview, #features, #document {
-  margin: 3em;
-}
-
 #abstract .nuxt-content {
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -403,7 +422,6 @@ span.after {
 #wireframe {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin: 3em;
 }
 
 @media screen and (max-width: 991px) {
@@ -438,23 +456,31 @@ span.after {
 }
 
 #features .nuxt-content figure {
-  margin-top: 5em;
+  margin-top: 12em;
   margin-bottom: 2.5em;
+  text-align: center;
 }
 
 #features .nuxt-content figure > img {
-  max-width: 100%;
-  margin: 0 auto;
+  max-height: 450px;
+  max-width: 1280px;
 }
 
-#archivement {
+@media screen and (max-width: 767px) {
+  #features .nuxt-content figure > img {
+    max-height: unset;
+    max-width: 85vw;
+  }
+}
+
+#achievement {
   display:grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 8em;
   grid-template-areas:  'slogan slogan' 'wrapper wrapper' 'button-now button-after';
 }
 
-#archivement > .screens-wrapper {
+#achievement > .screens-wrapper {
   grid-area: wrapper;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -464,40 +490,40 @@ span.after {
   overflow: hidden;
 }
 
-#archivement > .slogan {
+#achievement > .slogan {
   grid-area: slogan;
   font-weight: 700;
   text-align: center;
   margin-bottom: 1.5em;
 }
 
-#archivement > .screens-wrapper > .macbook.before {
+#achievement > .screens-wrapper > .macbook.before {
   grid-area: screen-before;
 }
 
-#archivement > .screens-wrapper > .macbook.after {
+#achievement > .screens-wrapper > .macbook.after {
   grid-area: screen-after;
 }
 
-#archivement > .button {
+#achievement > .button {
   margin: 3em auto;
 }
 
-#archivement > .button.view-now {
+#achievement > .button.view-now {
   grid-area: button-now;
   background-color: var(--color-gray);
   border-color: var(--color-gray);
   justify-self: center;
 }
 
-#archivement > .button.view-after {
+#achievement > .button.view-after {
   grid-area: button-after;
   background-color: var(--color-ray);
   border-color: var(--color-ray);
   justify-self: center;
 }
 
-#archivement a {
+#achievement a {
   color: white;
 }
 
