@@ -86,6 +86,6 @@ export default {
 
     //   // return files.map(file => /\/index$/.test(file.path) ? file.path.replace(/\/index$/, '/') : file.path)
     // }
-    routes: ['/taipei_service']
+    routes: ['/taipei_service', '/tpech']
   }
 }
