@@ -1,0 +1,27 @@
+title: 臺中市政府社會局，\n兼顧民眾和業務同仁需求的再設計。
+intro: 團隊經研究後發現三項關鍵議題，分別為「不明確的服務指引」、「申辦流程不清楚」，以及「線上下服務存有斷點」。團隊於是透過完善服務引導、重整公文呈現方式、連結社福地圖等作為，在不增加業務科的負擔下，優化網站的使用體驗。
+images:
+  landing:
+    before: landing_before.jpg
+    after: landing_after.jpg
+  wireframe:
+    a_version: contentdesign_wireframeA.jpg
+    b_version: contentdesign_wireframeB.jpg
+  demon:
+    before: demon_before.jpg
+    after: demon_after.jpg
+    all: demon_all.jpg
+    photography: demon_images.jpg
+tags:
+  - 地方政府網站
+  - 市民服務
+members:
+  - 張詩菱
+  - 楊博智
+  - 黃凡澔
+  - 何瑜萱
+issuu: ________8_31_____
+links:
+  current_site: https://www.society.taichung.gov.tw/
+  prototype: https://www.figma.com/proto/7ZXiSlHCMOEZSByvB4MEPw/%E8%9E%8D%E5%90%88%E7%89%88-c?node-id=61%3A0&scaling=min-zoom
+theme_color: '#F2A744'

@@ -59,17 +59,6 @@
       <nuxt-content class="container" :document="conclusion" />
     </section>
 
-    <section id="preview">
-      <div class="marvel-device macbook" :style="`font-size: ${deviceFontSize}`">
-        <div class="top-bar" />
-        <div class="camera" />
-        <div class="screen">
-          <video :src="`/projects/${project}/${meta.previewVideo}`" autoplay playsinline muted loop />
-        </div>
-        <div class="bottom-bar" />
-      </div>
-    </section>
-
     <section id="features">
       <nuxt-content class="container" :document="features" />
     </section>
@@ -127,8 +116,8 @@ export default {
       return Object.keys(images).reduce((previous, key) => Object.assign(previous, { [key]: genImagesSet(images[key], project) }), {})
     }
 
-    const { title, intro, images, tags, members, preview_video: previewVideo, issuu, links, theme_color: themeColor } = (await $content(`${params.project}`).where({ slug: 'index' }).fetch())[0]
-    const meta = { title, intro, images, previewVideo, tags, members, issuu, links, themeColor }
+    const { title, intro, images, tags, members, issuu, links, theme_color: themeColor } = (await $content(`${params.project}`).where({ slug: 'index' }).fetch())[0]
+    const meta = { title, intro, images, tags, members, issuu, links, themeColor }
 
     meta.images = genImagesSet(meta.images, params.project)
 
@@ -206,13 +195,13 @@ export default {
   line-height: 1.2;
 }
 
-#abstract, #conclusion, #document {
+#abstract, #document {
   margin: 8em 7.5em;
 }
 
-#preview {
-  margin: 0 7.5em;
-}
+ #conclusion {
+   margin: 8em 7.5em 2.5em 7.5em;
+ }
 
 #features {
   margin-left: 7.5em;
@@ -362,6 +351,11 @@ span.after {
   grid-gap: 3em;
 }
 
+#abstract .nuxt-content h4 {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 #abstract .nuxt-content > figure {
   text-align: center;
 }
@@ -450,17 +444,8 @@ span.after {
   }
 }
 
-#preview {
-  display: flex;
-  justify-content: center;
-}
-
-#preview > .macbook > .screen > video {
-  width: 100%;
-}
-
 #features .nuxt-content figure {
-  margin-top: 12em;
+  margin-top: 6em;
   margin-bottom: 2.5em;
   text-align: center;
 }
@@ -468,6 +453,13 @@ span.after {
 #features .nuxt-content figure > img {
   max-height: 450px;
   max-width: 1280px;
+}
+
+#features .nuxt-content div.macbook-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 6em;
+  margin-bottom: 2.5em;
 }
 
 @media screen and (max-width: 767px) {

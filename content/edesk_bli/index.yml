@@ -1,0 +1,27 @@
+title: 勞動部勞工保險局e化服務系統，\n讓退休人士也能安心使用。
+intro: 團隊在經過前期研究及收斂出親合圖後，定錨了兩項關鍵議題，分別是「服務缺乏適當指引」及「難以快速且放心地找到關鍵資訊」。透過適時的提示引導、梳理資訊架構、重整導覽頁面等關鍵設計，團隊逐步優化了服務系統的體驗，藉以打造令退休人士也能安心使用的勞保網站。
+images:
+  landing:
+    before: landing_before.jpg
+    after: landing_after.jpg
+  wireframe:
+    a_version: contentdesign_wireframeA.jpg
+    b_version: contentdesign_wireframeB.jpg
+  demon:
+    before: demon_before.jpg
+    after: demon_after.jpg
+    all: demon_all.jpg
+    photography: demon_images.jpg
+tags:
+  - 中央政府網站
+  - 就業
+members:
+  - 林暖婷
+  - 賴玨澄
+  - 徐遠志
+  - 黃炳儒
+issuu: ___e_________
+links:
+  current_site: https://edesk.bli.gov.tw/na/
+  prototype: https://www.figma.com/proto/kiKrdsvPSZ0VzfQpug2hEZ/%E5%8B%9E%E4%BF%9D%E5%B1%80prototype?node-id=48%3A716&scaling=min-zoom&hide-ui=1&fbclid=IwAR2IZwcmH2tqCCUjNkrxLI7fv_wuB602Y897RTrjVxAKzl_m54JTARWy1BM
+theme_color: '#57A4E2'

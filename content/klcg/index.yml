@@ -1,0 +1,27 @@
+title: 基隆市政府全球資訊網，\n打造不迷路的整合式入口網。
+intro: 有別於一般功能明確的政府網站，此類型的入口網以「大量的資訊揭露」為主要目的；而透過團隊的研究發現，「混亂的資訊架構」，以及「不直觀的瀏覽流程」是此次改造的重點方向。秉持「廣而淺並非窄而深」的設計原則，團隊捲起袖子、重新梳理網站架構，打造一個不迷路的整合式入口網。
+images:
+  landing:
+    before: landing_before.jpg
+    after: landing_after.jpg
+  wireframe:
+    a_version: contentdesign_wireframeA.jpg
+    b_version: contentdesign_wireframeB.jpg
+  demon:
+    before: demon_before.jpg
+    after: demon_after.jpg
+    all: demon_all.jpg
+    photography: demon_images.jpg
+tags:
+  - 地方政府網站
+  - 市民服務
+members:
+  - 翁瑞宏
+  - 楊郁如
+  - 潘躍升
+  - 吳育葦
+issuu: ___________0831_______
+links:
+  current_site: https://www.klcg.gov.tw/
+  prototype: https://xd.adobe.com/view/91a02572-25d4-4fe7-8b76-999baa58e582-c4f3/screen/f77d30e3-32f7-409b-842f-d8b472963250?fbclid=IwAR21DGYmXg6L4X85saM9pu3j0FoJKoRaPgoYYeXVAqNfNESHk4whDKR_PZM&fullscreen&hints=off
+theme_color: '#67AE29'

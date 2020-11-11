@@ -1,0 +1,29 @@
+title: 臺灣就業通，\n從就業服務處探見服務的改造潛力。
+intro: 團隊經研究探索後，發現現存功能難以凸顯就業通的市場必要性，且民眾無法直觀地得知其所提供的求職服務。因此，團隊擴大發展原有的「實體諮詢服務」，新增「線上預約、申辦」等流程，使就業服務處得以在線上管道發揮潛在價值。此外，團隊也重整了資訊顆粒度和架構，優化整體易用性。
+images:
+  landing:
+    before: landing_before.jpg
+    after: landing_after.jpg
+  wireframe:
+    a_version: contentdesign_wireframeA.jpg
+    b_version: contentdesign_wireframeB.jpg
+  demon:
+    before: demon_before.jpg
+    after: demon_after.jpg
+    all: demon_all.jpg
+    photography: demon_images.jpg
+tags:
+  - 中央政府網站
+  - 就業
+members:
+  - 賴彥汝
+  - 羅敏
+  - 李安峻
+  - 李欣儒
+issuu: ______0831_______
+links:
+  current_site: https://www.taiwanjobs.gov.tw/home109/index.aspx
+  prototype:
+    web: https://www.figma.com/proto/hZlc8pnOdijzOYHOKKi568/%E5%8F%B0%E7%81%A3%E5%B0%B1%E6%A5%AD%E9%80%9A_prototype_web?node-id=443%3A14813&scaling=scale-down-width&fbclid=IwAR04xvD6wxOEOUZ011w6Hey4DGjzWita-mIf-zbDwbV8XYMURrovpOuyTiA
+    mobile: https://www.figma.com/proto/IJPWZIuxIJbXEkQj4eVVey/%E5%8F%B0%E7%81%A3%E5%B0%B1%E6%A5%AD%E9%80%9A_prototype_mobile?node-id=201%3A21&scaling=scale-down&fbclid=IwAR2nbTDWNJSstgiT-JiuR-tnfvtyAEXxl7S-glyprnpqUS_eHXcUfHiQlLk
+theme_color: '#E74F51'
