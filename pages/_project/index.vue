@@ -1,6 +1,7 @@
 <template>
   <div :style="`--theme-color: ${meta.themeColor}`">
     <section id="header">
+      <div class="screentone" />
       <span class="before">Before</span>
       <span class="after">After</span>
       <div class="marvel-device macbook" :style="`font-size: ${deviceFontSize}`">
@@ -227,6 +228,16 @@ export default {
   grid-template-areas: 'before after landing landing' 'macbook macbook landing landing' 'view_now view_after landing landing';
 }
 
+#header .screentone {
+  background-image: radial-gradient(circle farthest-corner at center, rgba(255, 255,255, .2) 27%, var(--theme-color) 27%);
+  background-size: 10px 10px;
+  width: 29.3vw;
+  height: 29.3vw;
+  grid-area: landing;
+  justify-self: end;
+  align-self: start;
+}
+
 span.before {
   grid-area: before;
   font-size: 1.5rem;
@@ -308,6 +319,14 @@ span.after {
     grid-template-rows: auto auto auto 1fr;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: 'before after' 'macbook macbook' 'view_now view_after' 'landing landing';
+  }
+
+  #header .screentone {
+    width: 31.1vw;
+    height: 62vw;
+    grid-area: after;
+    justify-self: end;
+    align-self: start;
   }
 
   span.before, #view-now {
