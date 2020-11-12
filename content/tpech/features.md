@@ -1,5 +1,5 @@
 <div class="macbook-wrapper">
-  <macbook fill="/projects/tpech/contentdesign_design1_1080.mp4">
+  <macbook fill="/projects/tpech/contentdesign_design1_1920.mp4">
 </div>
 
 #### **改版特色一：簡潔的版面設計**
