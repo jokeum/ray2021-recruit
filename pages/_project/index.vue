@@ -57,11 +57,11 @@
     </section>
 
     <section id="conclusion">
-      <nuxt-content class="container" :document="conclusion" />
+      <nuxt-content :document="conclusion" />
     </section>
 
     <section id="features">
-      <nuxt-content class="container" :document="features" />
+      <nuxt-content :document="features" />
     </section>
 
     <section id="achievement">
@@ -176,6 +176,16 @@ export default {
 
 <style>
 
+:root {
+  --margin-horizontal: 7.5em;
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --margin-horizontal: 2.5em;
+  }
+}
+
 #header > .macbook > .screen > .before,
 #header > .macbook > .screen > .after,
 #wireframe > .macbook > .screen,
@@ -197,16 +207,16 @@ export default {
 }
 
 #abstract, #document {
-  margin: 8em 7.5em;
+  margin: 8em var(--margin-horizontal);
 }
 
  #conclusion {
-   margin: 8em 7.5em 2.5em 7.5em;
+   margin: 8em var(--margin-horizontal) 2.5em var(--margin-horizontal);
  }
 
 #features {
-  margin-left: 7.5em;
-  margin-right: 7.5em;
+  margin-left: var(--margin-horizontal);
+  margin-right: var(--margin-horizontal);
   margin-top: 2.5em;
 }
 
