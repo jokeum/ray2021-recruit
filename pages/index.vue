@@ -103,7 +103,7 @@
       </div>
       <video
         class="image"
-        src="~/static/intern.mp4"
+        src="~/static/intern_libx264_profile-main_level-3.1_preset-medium_crf-28_570x360.mp4"
         autoplay
         playsinline
         muted
