@@ -1,5 +1,7 @@
 <div class="macbook-wrapper">
-  <macbook fill="/projects/yda/contentdesign_design_libx264_profile-main_level-3.1_preset-medium_crf-23.mp4" />
+  <macbook 
+    fill="/projects/yda/contentdesign_design_libx264_profile-main_level-3.1_preset-medium_crf-23.mp4"
+    media="true" />
 </div>
 
 #### **改版特色一：活動探索的資訊呈現再設計**

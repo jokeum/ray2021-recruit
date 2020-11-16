@@ -10,10 +10,12 @@
         <div class="screen videoFill">
           <video
             :src="`${fill}`"
-            autoplay
             playsinline
-            muted
-            loop
+            :autoplay="!asMedia"
+            :muted="!asMedia"
+            :loop="!asMedia"
+            :controls="asMedia"
+            :style="asMedia ? { backgroundImage: `url(${screenshot})`, backgroundSize: 'cover' } : ''"
           />
         </div>
       </template>
@@ -26,6 +28,10 @@
 export default {
   props: {
     fill: {
+      type: String,
+      default: ''
+    },
+    media: {
       type: String,
       default: ''
     }
@@ -42,6 +48,15 @@ export default {
         return true
       }
       return false
+    },
+    asMedia () {
+      return !this.isImg && /^true$/i.test(this.media)
+    },
+    screenshot () {
+      if (this.asMedia) {
+        return this.fill.replace(/.mp4$/, '_screenshot.jpg')
+      }
+      return ''
     }
   },
   mounted () {
