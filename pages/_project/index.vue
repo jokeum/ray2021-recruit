@@ -334,7 +334,8 @@ span.after {
   #header .screentone {
     width: 31.1vw;
     height: 62vw;
-    grid-area: after;
+    grid-column: 2/3;
+    grid-row: 1/3;
     justify-self: end;
     align-self: start;
   }
@@ -351,7 +352,7 @@ span.after {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: 'members title' 'members intro';
-    grid-column-gap: 2em;
+    grid-column-gap: 3em;
   }
 
   .landing .members {
