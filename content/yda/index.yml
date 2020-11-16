@@ -1,5 +1,5 @@
-title: 臺中市政府社會局，\n兼顧民眾和業務同仁需求的再設計。
-intro: 團隊經研究後發現三項關鍵議題，分別為「不明確的服務指引」、「申辦流程不清楚」，以及「線上下服務存有斷點」。團隊於是透過完善服務引導、重整公文呈現方式、連結社福地圖等作為，在不增加業務科的負擔下，優化網站的使用體驗。
+title: 教育部青年署官網\n，讓好活動能被更多青年學子看見。
+intro: 團隊經過前期研究後，發現「太少青年參與活動」及「資訊散亂」是現階段網站遭遇的主要挑戰；透過重整網站地圖、放大「活動」在網站上的視覺焦點，以減少使用者在找尋活動的步程，進一步提高使用意願。
 images:
   landing:
     before: landing_before.jpg
@@ -13,15 +13,15 @@ images:
     all: demon_all.jpg
     photography: demon_images.jpg
 tags:
-  - 地方政府網站
-  - 市民服務
+  - 中央政府網站
+  - 就學
 members:
-  - 張詩菱
-  - 楊博智
-  - 黃凡澔
-  - 何瑜萱
+  - 黃采媛
+  - 蔡蕙羽
+  - 簡巧恩
+  - 羅宛庭
 issuu:
 links:
   current_site:
   prototype:
-theme_color: '#F2A744'
+theme_color: '#FAB63E'
