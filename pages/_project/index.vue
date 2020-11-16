@@ -481,7 +481,7 @@ span.after {
 
 #features .nuxt-content figure > img {
   max-height: 450px;
-  max-width: 1280px;
+  max-width: min(1280px, 100%);
 }
 
 #features .nuxt-content div.macbook-wrapper {

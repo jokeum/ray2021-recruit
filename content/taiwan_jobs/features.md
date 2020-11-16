@@ -1,5 +1,5 @@
 <div class="macbook-wrapper">
-  <macbook fill="/projects/taiwan_jobs/contentdesign_design1_silent.mp4" />
+  <macbook fill="/projects/taiwan_jobs/contentdesign_design1_libx264_profile-main_level-3.1_preset-medium_crf-28_720P.mp4" />
 </div>
 
 #### **改版特色一：擴大發展並優化既有的優勢服務**
@@ -13,7 +13,7 @@
 納入有相關資訊的子網站內容，重新規劃資訊架構，將「申辦資訊」、「找工作」、「找課程」等重要使用者目標放在最高層次，以作為網站重要導覽列項目。此外，也避免使用大量法條與行政文字，使網站引導用語更為人性化。
 
 <div class="macbook-wrapper">
-  <macbook fill="/projects/taiwan_jobs/contentdesign_design3_silent.mp4" />
+  <macbook fill="/projects/taiwan_jobs/contentdesign_design3_libx264_profile-main_level-3.1_preset-medium_crf-28_720P.mp4" />
 </div>
 
 #### **改版特色三：簡化操作元件、提供明確功能指示**

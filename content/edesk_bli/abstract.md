@@ -1,4 +1,4 @@
-<figure style="--pos-start: 1; --pos-end: 2; --pos-mob-s: 1; --pos-mob-e: 2;"><img src="/projects/edesk_bil/contentresearch_now.jpg"></figure>
+<figure style="--pos-start: 1; --pos-end: 2; --pos-mob-s: 1; --pos-mob-e: 2;"><img src="/projects/edesk_bli/contentresearch_now.jpg"></figure>
 
 <div class="content" style="--pos-start: 2; --pos-end: 4; --pos-mob-s: 2; --pos-mob-e: 3;">
 
@@ -29,4 +29,4 @@
 由於勞保局網站上包含個人過去工作的資料，對於使用者來說這是需要被保護的。若能提升網站給人的安心感，可以讓使用者體驗更好。
 </div>
 
-<figure style="--pos-start: 3; --pos-end: 4; --pos-mob-s: 3; --pos-mob-e: 4;"><img src="/projects/edesk_bil/contentresearch_issues.jpg"></figure>
+<figure style="--pos-start: 3; --pos-end: 4; --pos-mob-s: 3; --pos-mob-e: 4;"><img src="/projects/edesk_bli/contentresearch_solutions.jpg"></figure>
