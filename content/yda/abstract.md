@@ -29,4 +29,4 @@
 
 </div>
 
-<figure style="--pos-start: 3; --pos-end: 4; --pos-mob-s: 3; --pos-mob-e: 4;"><img src="/projects/taichung_society/contentresearch_issues.jpg"></figure>
+<figure style="--pos-start: 3; --pos-end: 4; --pos-mob-s: 3; --pos-mob-e: 4;"><img src="/projects/taichung_society/contentresearch_solutions.jpg"></figure>
