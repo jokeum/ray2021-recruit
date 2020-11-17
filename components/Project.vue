@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="card-action">
-        <a :href="linkTo" class="button">看更多</a>
+        <a :href="`/${linkTo}/`" class="button">看更多</a>
       </div>
     </div>
   </div>
