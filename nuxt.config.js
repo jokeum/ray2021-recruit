@@ -89,6 +89,14 @@ export default {
 
     //   // return files.map(file => /\/index$/.test(file.path) ? file.path.replace(/\/index$/, '/') : file.path)
     // }
-    routes: ['/taipei_service', '/tpech', '/klcg', '/taichung_society', '/taiwan_jobs']
+    routes: [
+      '/taipei_service',
+      '/tpech',
+      '/klcg',
+      '/taichung_society',
+      '/taiwan_jobs',
+      '/edesk_bli',
+      '/yda'
+    ]
   }
 }
