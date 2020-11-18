@@ -29,7 +29,15 @@
         </div>
       </div>
       <a id="view-now" :href="meta.links.current_site" target="_blank" class="button">看現行網站</a>
-      <a id="view-after" :href="meta.links.prototype" target="_blank" class="button">看改造版本</a>
+      <template v-if="typeof meta.links.prototype === 'string'">
+        <a id="view-after" :href="meta.links.prototype" target="_blank" class="button">看改造版本</a>
+      </template>
+      <template v-else>
+        <span id="view-after" :href="meta.links.prototype" target="_blank" class="button">
+          <a :href="meta.links.prototype.web" target="_blank">改造後電腦版</a>
+          <a :href="meta.links.prototype.mobile" target="_blank">改造後手機版</a>
+        </span>
+      </template>
     </section>
     <section id="abstract">
       <nuxt-content class="container" :document="abstract" />
@@ -84,7 +92,15 @@
       </div>
 
       <a :href="meta.links.current_site" target="_blank" class="button view-now">看現行網站</a>
-      <a :href="meta.links.prototype" target="_blank" class="button view-after">看改造版本</a>
+      <template v-if="typeof meta.links.prototype === 'string'">
+        <a :href="meta.links.prototype" target="_blank" class="button view-after">看改造版本</a>
+      </template>
+      <template v-else>
+        <span :href="meta.links.prototype" target="_blank" class="button view-after">
+          <a :href="meta.links.prototype.web" target="_blank">改造後電腦版</a>
+          <a :href="meta.links.prototype.mobile" target="_blank">改造後手機版</a>
+        </span>
+      </template>
     </section>
 
     <img :src="meta.images.demon.all" alt="" class="bg-img">
@@ -276,12 +292,42 @@ span.after {
   border-color: var(--color-gray);
 }
 
-#view-after {
+a#view-after {
   grid-area: view_after;
   justify-self: start;
   align-self: start;
   background-color: var(--color-ray);
   border-color: var(--color-ray);
+}
+
+span#view-after {
+  grid-area: view_after;
+  justify-self: start;
+  align-self: start;
+  background-color: white;
+  border-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+span#view-after a,
+span#view-after a:hover,
+span#view-after a:visited {
+  color: var(--color-gray);
+}
+
+span#view-after a:not(:last-child) {
+  padding-right: 10px;
+}
+
+span#view-after a:not(:first-child) {
+  padding-left: 10px;
+}
+
+span#view-after a:not(:last-child) {
+  border-right-style: dotted;
+  border-right-width: .5px;
+  border-right-color: var(--color-gray);
 }
 
 .landing {
@@ -547,6 +593,22 @@ span.after {
   background-color: var(--color-ray);
   border-color: var(--color-ray);
   justify-self: center;
+  display: flex;
+  justify-content: center;
+}
+
+#achievement > span.button.view-after a:not(:last-child) {
+  padding-right: 10px;
+}
+
+#achievement > span.button.view-after a:not(:first-child) {
+  padding-left: 10px;
+}
+
+#achievement > span.button.view-after a:not(:last-child) {
+  border-right-style: dotted;
+  border-right-width: .5px;
+  border-right-color: white;
 }
 
 #achievement a {
