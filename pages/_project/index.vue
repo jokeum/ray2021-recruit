@@ -99,13 +99,10 @@
         <a :href="meta.links.prototype" target="_blank" class="button view-after">看改造版本</a>
       </template>
       <template v-else>
-        <div class="view-after">
-          <span :href="meta.links.prototype" class="button">
-            <a :href="meta.links.prototype.web" target="_blank">電腦版</a>
-            <a :href="meta.links.prototype.mobile" target="_blank">手機版</a>
-          </span>
-          <p>點擊上方看改造版本</p>
-        </div>
+        <span class="view-after button">
+          <a :href="meta.links.prototype.web" target="_blank">電腦版</a>
+          <a :href="meta.links.prototype.mobile" target="_blank">手機版</a>
+        </span>
       </template>
     </section>
 
