@@ -33,10 +33,13 @@
         <a id="view-after" :href="meta.links.prototype" target="_blank" class="button">看改造版本</a>
       </template>
       <template v-else>
-        <span id="view-after" :href="meta.links.prototype" target="_blank" class="button">
-          <a :href="meta.links.prototype.web" target="_blank">改造後電腦版</a>
-          <a :href="meta.links.prototype.mobile" target="_blank">改造後手機版</a>
-        </span>
+        <div id="view-after">
+          <span :href="meta.links.prototype" class="button">
+            <a :href="meta.links.prototype.web" target="_blank">電腦版</a>
+            <a :href="meta.links.prototype.mobile" target="_blank">手機版</a>
+          </span>
+          <span>點擊上方看改造版本</span>
+        </div>
       </template>
     </section>
     <section id="abstract">
@@ -96,10 +99,13 @@
         <a :href="meta.links.prototype" target="_blank" class="button view-after">看改造版本</a>
       </template>
       <template v-else>
-        <span :href="meta.links.prototype" target="_blank" class="button view-after">
-          <a :href="meta.links.prototype.web" target="_blank">改造後電腦版</a>
-          <a :href="meta.links.prototype.mobile" target="_blank">改造後手機版</a>
-        </span>
+        <div class="view-after">
+          <span :href="meta.links.prototype" class="button">
+            <a :href="meta.links.prototype.web" target="_blank">電腦版</a>
+            <a :href="meta.links.prototype.mobile" target="_blank">手機版</a>
+          </span>
+          <p>點擊上方看改造版本</p>
+        </div>
       </template>
     </section>
 
@@ -108,7 +114,7 @@
 
     <section id="document">
       <h4>詳細專案文件</h4>
-      <iframe allowfullscreen allow="fullscreen" style="border:none;width:100%;height:80vh;" :src="`//e.issuu.com/embed.html?d=${meta.issuu}&pageLayout=singlePage&u=pdis.tw`" />
+      <iframe allowfullscreen allow="fullscreen" :style="documentStyle" :src="`//e.issuu.com/embed.html?d=${meta.issuu}&pageLayout=singlePage&u=pdis.tw`" />
     </section>
   </div>
 </template>
@@ -149,7 +155,8 @@ export default {
   data () {
     return {
       deviceFontSize: 'calc(720 / 1048 * 1px)',
-      deviceFontSizeSmall: 'calc(720 / 1048 * .75px)'
+      deviceFontSizeSmall: 'calc(720 / 1048 * .75px)',
+      documentStyle: 'border:none;width:100%;height:80vh;'
     }
   },
   computed: {
@@ -173,6 +180,7 @@ export default {
   methods: {
     resizeing () {
       const vw = window.innerWidth
+      const vh = window.innerHeigh
 
       if (vw >= 992) {
         const scaling = Math.min(vw, 1440) / 1440 * 720 / 1048
@@ -184,6 +192,12 @@ export default {
       } else {
         this.deviceFontSize = '.3px'
         this.deviceFontSizeSmall = '.3px'
+      }
+
+      if (vw > vh) {
+        this.documentStyle = 'border:none;width:100%;height:80vh;'
+      } else {
+        this.documentStyle = 'border:none;width:100%;height:50vh;'
       }
     }
   }
@@ -210,7 +224,7 @@ export default {
   background-position: left top;
 }
 
-#header > .button,
+#header .button,
 #achievement > .button {
   color: white;
   font-weight: 700;
@@ -300,31 +314,42 @@ a#view-after {
   border-color: var(--color-ray);
 }
 
-span#view-after {
+div#view-after {
   grid-area: view_after;
   justify-self: start;
   align-self: start;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: .25em;
+  justify-items: center;
+}
+
+div#view-after .button {
   background-color: white;
   border-color: white;
   display: flex;
   justify-content: center;
 }
 
-span#view-after a,
-span#view-after a:hover,
-span#view-after a:visited {
+div#view-after span {
+  color: white;
+}
+
+div#view-after a,
+div#view-after a:hover,
+div#view-after a:visited {
   color: var(--color-gray);
 }
 
-span#view-after a:not(:last-child) {
+div#view-after a:not(:last-child) {
   padding-right: 10px;
 }
 
-span#view-after a:not(:first-child) {
+div#view-after a:not(:first-child) {
   padding-left: 10px;
 }
 
-span#view-after a:not(:last-child) {
+div#view-after .button a:not(:last-child) {
   border-right-style: dotted;
   border-right-width: .5px;
   border-right-color: var(--color-gray);
@@ -365,7 +390,7 @@ span#view-after a:not(:last-child) {
   height: 100%;
 }
 
-#header > .button {
+#header #view-after, #header #view-now {
   margin: 1.5em;
 }
 
