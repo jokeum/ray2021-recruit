@@ -366,7 +366,7 @@ span#view-after a:not(:last-child) {
 }
 
 #header > .button {
-  margin: 3em;
+  margin: 1.5em;
 }
 
 @media screen and (max-width: 991px) {
