@@ -1,4 +1,4 @@
-<figure style="--pos-start: 1; --pos-end: 2; --pos-mob-s: 1; --pos-mob-e: 2;"><img src="/projects/taichung_society/contentresearch_now.jpg"></figure>
+<figure style="--pos-start: 1; --pos-end: 2; --pos-mob-s: 1; --pos-mob-e: 2;"><img src="/projects/yda/contentresearch_now.jpg"></figure>
 
 <div class="content" style="--pos-start: 2; --pos-end: 4; --pos-mob-s: 2; --pos-mob-e: 3;">
 
@@ -28,4 +28,4 @@
 
 </div>
 
-<figure style="--pos-start: 3; --pos-end: 4; --pos-mob-s: 3; --pos-mob-e: 4;"><img src="/projects/taichung_society/contentresearch_solutions.jpg"></figure>
+<figure style="--pos-start: 3; --pos-end: 4; --pos-mob-s: 3; --pos-mob-e: 4;"><img src="/projects/yda/contentresearch_solutions.jpg"></figure>
