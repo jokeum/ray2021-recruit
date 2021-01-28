@@ -111,7 +111,7 @@
 
     <section id="document">
       <h4>詳細專案文件</h4>
-      <iframe allowfullscreen allow="fullscreen" :style="documentStyle" :src="`//e.issuu.com/embed.html?d=${meta.issuu}&pageLayout=singlePage&u=pdis.tw`" />
+      <iframe allowfullscreen allow="fullscreen" :style="documentStyle" :src="`//e.issuu.com/embed.html?d=${meta.issuu}&pageLayout=singlePage&u=pdis.tw&hideIssuuLogo=true`" />
     </section>
   </div>
 </template>
