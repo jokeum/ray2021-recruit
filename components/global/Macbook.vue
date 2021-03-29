@@ -93,7 +93,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #000;
+  background-color: black;
 }
 
 .macbook > .screen.videoFill > video {

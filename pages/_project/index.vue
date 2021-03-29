@@ -1,5 +1,6 @@
 <template>
   <div :style="`--theme-color: ${meta.themeColor}`">
+    <Navbar />
     <section id="header">
       <div class="screentone" />
       <span class="before">Before</span>
@@ -494,7 +495,7 @@ div#view-after .button a:not(:last-child) {
 
 #mc .screentone {
   grid-column: 1 / 2;
-  background-image: radial-gradient(circle farthest-corner at center, var(--theme-color) 27%, #fff 27%);
+  background-image: radial-gradient(circle farthest-corner at center, var(--theme-color) 27%, white 27%);
   background-size: 10px 10px;
   width: 22vw;
   height: 356px;

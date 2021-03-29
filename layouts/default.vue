@@ -71,4 +71,12 @@ h3 {
   box-sizing: border-box;
   margin: 0;
 }
+
+.color\:ray {
+  color: var(--color-ray);
+}
+
+.weight\:bold {
+  font-weight: bold;
+}
 </style>
