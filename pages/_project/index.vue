@@ -1,5 +1,6 @@
 <template>
   <div :style="`--theme-color: ${meta.themeColor}`">
+    <Navbar />
     <section id="header">
       <div class="screentone" />
       <span class="before">Before</span>
