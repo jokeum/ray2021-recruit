@@ -4,12 +4,12 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'Rescue Action by Youth .gov 4.0',
+    title: 'Rescue Action by Youth .gov 5.0',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { hid: 'og:title', property: 'og:title', content: 'Rescue Action by Youth .gov 4.0' },
+      { hid: 'og:title', property: 'og:title', content: 'Rescue Action by Youth .gov 5.0' },
       { hid: 'og:description', property: 'og:description', content: '一場改造公部門網站的熱血行動！' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       { hid: 'og:url', property: 'og:url', content: 'https://ray.pdis.nat.gov.tw' },
