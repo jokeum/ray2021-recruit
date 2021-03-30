@@ -1,10 +1,10 @@
 <template>
   <div id="landing">
+    <Navbar />
     <div class="bg">
       <div class="bg-img" />
       <div class="bg-mask" />
     </div>
-    <Navbar />
     <section id="title" class="container">
       <h1>RAY 4.0</h1>
       <span>Rescue Action by Youth .gov 2020</span>
@@ -188,7 +188,6 @@ a.button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: calc(-1rem - 0.625rem - 80px);
   color: white;
   padding-left: 9em;
   padding-right: 9em;
