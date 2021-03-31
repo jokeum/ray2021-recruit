@@ -280,6 +280,7 @@ a:hover {
 #recruit > section:not(:nth-child(2)) {
   padding-top: 3em;
   padding-bottom: 3em;
+  scroll-margin-top: 4.625rem;
 }
 
 #recruit > section > h2:after {
