@@ -251,7 +251,7 @@ a:hover {
 
 .bg {
   overflow: hidden;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   display: grid;
   grid-template-rows: 1fr;
